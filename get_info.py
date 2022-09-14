@@ -20,6 +20,7 @@ def finder(input_class, yearsem):
     hub = results.find_all('ul', class_="coursearch-result-hub-list")
 
     hub_list = str(hub).replace('</li>', '').replace('</ul>]', '').split('<li>')[1:]
+    print('i love milfs')
     # Gets: [hub credits]
     
     # For finding the prereq, coreq, description and credit

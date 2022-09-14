@@ -1,8 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+from addons import cleaner
 
 def finder(input_class: str, yearsem: str) -> dict:
-    code = input_class.split(' ')
+    code = input_class.upper().split(' ')
     if yearsem == 'future':
         time = '*'
     else:
@@ -28,30 +29,24 @@ def finder(input_class: str, yearsem: str) -> dict:
 
     # Gets: [prereq, coreq, ?, description, numerical credit]
     full_list = full.text.splitlines()
+
+    for idx, val in enumerate(full_list):
+        if not val:
+            full_list[idx] = None
     
-    full_dict = {}
-    
-    for idx, val in enumerate(['unknown_1', 'prereq', 'unknown_2', 'coreq', 'unknown3', 'description', 'credit', 'hub credit']):
-        if idx < 7 and full_list[idx]:
-            full_dict[val] = full_list[idx]
-        elif idx == 7:
-            full_dict[val] = hub_list    
-        else:
-            full_dict[val] = None
+    full_dict = {
+        'prereq' : full_list[1],
+        'coreq' : full_list[3],
+        'description' : full_list[5],
+        'credit' : full_list[6],
+        'hub credit' : hub_list[:]
+    }
 
     return cleaner(full_dict)
+    
 
-def cleaner(contents: dict) -> dict:
-    while True:
-        if '  ' in contents['description']:
-            contents['description'] = contents['description'].replace('  ', ' ')
-        else:
-            break
-    
-    return contents
-    
 if __name__ == '__main__':
-    class_code = 'CDS DS 120'
+    class_code = 'qst sm 132'
     yearsem = '2022 Fall'
     hub = finder(class_code, yearsem)
     

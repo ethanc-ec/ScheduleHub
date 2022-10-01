@@ -1,4 +1,5 @@
 import re
+from types import NoneType
 import requests
 
 from pathlib import Path
@@ -84,52 +85,90 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list[list]:
     return single_entries
 
 
-def hub_collector(filename, yearsem: str = 'future') -> dict:
-    hub_dict = {
-        "Philosophical Inquiry and Life’s Meanings" : [1, 0],
-        "Aesthetic Exploration" : [1, 0],
-        "Historical Consciousness" : [1, 0],
+# global dictionalry for hub credits, don't know if this is a good idea
+global hub_dict 
+hub_dict = {
+    "Philosophical Inquiry and Life’s Meanings" : [1, 0],
+    "Aesthetic Exploration" : [1, 0],
+    "Historical Consciousness" : [1, 0],
 
-        "Scientific Inquiry I" : [1, 0],
-        "Social Inquiry I" : [1, 0],
-        "Scientific Inquiry II/Social Inquiry II" : [1, 0],
-        
-        "Quantitative Reasoning I" : [1, 0],
-        "Quantitative Reasoning II" : [1, 0],
-
-        "The Individual in Community" : [1, 0],
-        "Global Citizenship and Intercultural Literacy" : [2, 0],
-        "Ethical Reasoning" : [1, 0],
-
-        "First-Year Writing Seminar" : [1, 0],
-        "Writing, Research, and Inquiry" : [1, 0],
-        "Writing-Intensive Course" : [2, 0],
-        "Oral and/or Signed Communication" : [1, 0],
-        "Digital/Multimedia Expression" : [1, 0],
-
-        "Critical Thinking" : [2, 0],
-        "Research and Information Literacy" : [2, 0],
-        "Teamwork/Collaboration" : [2, 0],
-        "Creativity/Innovation" : [2, 0]
-    }   
+    "Scientific Inquiry I" : [1, 0],
+    "Social Inquiry I" : [1, 0],
+    "Scientific Inquiry II/Social Inquiry II" : [1, 0],
     
+    "Quantitative Reasoning I" : [1, 0],
+    "Quantitative Reasoning II" : [1, 0],
+
+    "The Individual in Community" : [1, 0],
+    "Global Citizenship and Intercultural Literacy" : [2, 0],
+    "Ethical Reasoning" : [1, 0],
+
+    "First-Year Writing Seminar" : [1, 0],
+    "Writing, Research, and Inquiry" : [1, 0],
+    "Writing-Intensive Course" : [2, 0],
+    "Oral and/or Signed Communication" : [1, 0],
+    "Digital/Multimedia Expression" : [1, 0],
+
+    "Critical Thinking" : [2, 0],
+    "Research and Information Literacy" : [2, 0],
+    "Teamwork/Collaboration" : [2, 0],
+    "Creativity/Innovation" : [2, 0]
+}
+
+
+def hub_collector(filename, yearsem: str = 'future') -> dict:  
     with open(Path(__file__).parent / filename) as class_txt:
         class_txt = class_txt.read().splitlines()
         
-        print('Progress: ')
+        hub_dict_base = {
+            "Philosophical Inquiry and Life’s Meanings" : [1, 0],
+            "Aesthetic Exploration" : [1, 0],
+            "Historical Consciousness" : [1, 0],
+
+            "Scientific Inquiry I" : [1, 0],
+            "Social Inquiry I" : [1, 0],
+            "Scientific Inquiry II/Social Inquiry II" : [1, 0],
+            
+            "Quantitative Reasoning I" : [1, 0],
+            "Quantitative Reasoning II" : [1, 0],
+
+            "The Individual in Community" : [1, 0],
+            "Global Citizenship and Intercultural Literacy" : [2, 0],
+            "Ethical Reasoning" : [1, 0],
+
+            "First-Year Writing Seminar" : [1, 0],
+            "Writing, Research, and Inquiry" : [1, 0],
+            "Writing-Intensive Course" : [2, 0],
+            "Oral and/or Signed Communication" : [1, 0],
+            "Digital/Multimedia Expression" : [1, 0],
+
+            "Critical Thinking" : [2, 0],
+            "Research and Information Literacy" : [2, 0],
+            "Teamwork/Collaboration" : [2, 0],
+            "Creativity/Innovation" : [2, 0]
+        }
+        
+        print('\nProgress: ')
         for i in class_txt:
             info = info_finder(i, yearsem)
+            if isinstance(info['hub credit'], NoneType):
+                break
+            
             for j in info['hub credit']:
                 try:
-                    hub_dict[j][1] += 1
+                    hub_dict_base[j][1] += 1
                 except:
                     if j == 'Scientific Inquiry II' or j == 'Social Inquiry II':
-                        hub_dict['Scientific Inquiry II/Social Inquiry II'][1] += 1
+                        hub_dict_base['Scientific Inquiry II/Social Inquiry II'][1] += 1
                         continue
             
             print(f'{i} done')
-                
-                
+            
+    global hub_dict
+    
+    if hub_dict_base != hub_dict:
+        hub_dict = hub_dict_base.copy()
+
     return hub_dict
 
 
@@ -149,6 +188,13 @@ def print_section(section_list):
         print(f'{i}\n') 
         
     return None 
+
+def print_all_hub():
+    global hub_dict
+    print('\nTotal Hub Credits: ')
+    
+    for hub in hub_dict:
+        print(f'{hub}: {hub_dict[hub]}')
     
 
 if __name__ == '__main__':

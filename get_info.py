@@ -1,10 +1,13 @@
 import re
-from types import NoneType
 import requests
 
+from types import NoneType
 from pathlib import Path
 from bs4 import BeautifulSoup
+
 from help_funcs import *
+from archive_data import *
+
 
 
 def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> BeautifulSoup:
@@ -31,6 +34,10 @@ def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> Be
 
 
 def info_finder(input_class: str, yearsem: str = 'future') -> dict:
+    if in_data(input_class):
+        class_data = pull_data(input_class)
+        return class_data
+    
     page_content = content_getter('info', input_class, yearsem)
     results = page_content.find(id="body-tag")
     
@@ -58,7 +65,30 @@ def info_finder(input_class: str, yearsem: str = 'future') -> dict:
     
     cleaned = cleaner(full_dict)
     
+    data_writing = {
+        input_class : cleaned
+    }
+    
+    write_data(data_writing)
+    
     return cleaned
+
+
+def hub_finder(input_class: str, yearsem: str = 'future') -> list:
+    page_content = content_getter('info', input_class, yearsem)
+    results = page_content.find(id="body-tag")
+    
+    # For finding the hub credits
+    hub = results.find('ul', class_="coursearch-result-hub-list")
+    
+    hub_list = str(hub).split('<li>')[1:]
+    
+    for idx, val in enumerate(hub_list):
+        hub_list[idx] = re.sub('<[^>]+>', '', val).strip()
+            
+    info_finder(input_class, yearsem)
+            
+    return hub_list
     
 
 def section_finder(input_class: str, yearsem: str = 'future') -> list[list]:
@@ -85,7 +115,7 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list[list]:
     return single_entries
 
 
-# global dictionalry for hub credits, don't know if this is a good idea
+# global dictionary for hub credits, don't know if this is a good idea
 global hub_dict 
 hub_dict = {
     "Philosophical Inquiry and Life’s Meanings" : [1, 0],
@@ -150,11 +180,17 @@ def hub_collector(filename, yearsem: str = 'future') -> dict:
         
         print('\nProgress: ')
         for i in class_txt:
-            info = info_finder(i, yearsem)
-            if isinstance(info['hub credit'], NoneType):
+            if in_data(i):
+                class_data = pull_data(i)
+                info = class_data['hub credit']
+                
+            else:
+                info = hub_finder(i, yearsem)
+                
+            if isinstance(info, NoneType):
                 break
             
-            for j in info['hub credit']:
+            for j in info:
                 try:
                     hub_dict_base[j][1] += 1
                 except:
@@ -181,6 +217,7 @@ def print_info(info_dict):
             
     return None
 
+
 def print_section(section_list):
     print('All sections: \n[section, open seats, instructor, type, location, schedule, dates, notes]\n')
     
@@ -189,18 +226,10 @@ def print_section(section_list):
         
     return None 
 
+
 def print_all_hub():
     global hub_dict
     print('\nTotal Hub Credits: ')
     
     for hub in hub_dict:
         print(f'{hub}: {hub_dict[hub]}')
-    
-
-if __name__ == '__main__':
-    class_code = 'cdsds210'
-    yearsem = '2022 fall'
-    
-    print(info_finder('cgsrh104', 'future'))
-    
-    

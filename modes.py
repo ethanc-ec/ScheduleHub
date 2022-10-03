@@ -1,4 +1,6 @@
+import time
 import get_info as gi
+from pathlib import Path
 
 
 
@@ -7,7 +9,7 @@ def mode_selection():
     while True:
         print('\nModes: \n')
         
-        for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', 'Exit']):
+        for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', 'Write to txt', 'Exit']):
             print(f"{idx + 1}. {val}")
                         
         mode = input('\nSelect a mode: ').lower()
@@ -28,8 +30,13 @@ def mode_selection():
             mode_show_hub_credits()
             continue
         
-        elif mode in ['5', 'exit']:
-            mode_exit()
+        elif mode in ['5', 'write to txt']:
+            mode_txt()
+            continue
+        
+        elif mode in ['6', 'exit']:
+            print('Exiting. . .')
+            quit()
             
         else:
             print('Invalid input. Try again.')
@@ -70,7 +77,8 @@ def mode_hub_credits() -> None:
     filename = input('\nEnter filename: ')
     if filename[-4:] != '.txt':
         filename += '.txt'
-            
+    
+    start = time.perf_counter()
     hubs = gi.hub_collector(filename)
 
     print('\nTotal Hub Credits: ')
@@ -78,6 +86,9 @@ def mode_hub_credits() -> None:
     for hub in hubs:
         print(f'{hub}: {hubs[hub]}')
     
+    stop = time.perf_counter()
+    print(f"\nDone in: {stop - start:0.4f} seconds")
+
     return None
 
 
@@ -86,51 +97,70 @@ def mode_show_hub_credits():
     
     for idx, hub in enumerate(gi.hub_dict):
         if idx == 0:
-            print(f'\nPhilosophical, Aesthetic, and Historical Interpretation')
+            print(f'\n\nPhilosophical, Aesthetic, and Historical Interpretation\n')
             
         elif idx == 3:
-            print(f'\nScientific and Social Inquiry')
+            print(f'\n\nScientific and Social Inquiry\n')
             
         elif idx == 6:
-            print(f'\nQuantitative Reasoning')
+            print(f'\n\nQuantitative Reasoning\n')
                 
         elif idx == 8:
-            print('\nDiversity, Civic Engagement, and Global Citizenship')
+            print('\n\nDiversity, Civic Engagement, and Global Citizenship\n')
             
         elif idx == 11:
-            print('\nCommunication')
+            print('\n\nCommunication\n')
             
         elif idx == 16:
-            print('\nIntellectual Toolkit')
+            print('\n\nIntellectual Toolkit\n')
             
         print(f'{hub}: {gi.hub_dict[hub]}')
     
     return None
 
 
-def mode_exit():
-    print('Exiting. . .')
-    return quit()
+def mode_txt():
+    filename = input('\nEnter filename (no .txt): ')
+    duplicate_count = 0
+    
+    while True:
+        if duplicate_count == 0:
+            full_filename = f'{filename}.txt'
+            
+        else:
+            full_filename = f'{filename}({duplicate_count}).txt'
+            
+        if not Path(Path(__file__).parent / full_filename).is_file():
+            
+            with open(full_filename, 'w') as f:
+                f.write('Total Hub Credits:\n')
+                
+                for idx, hub in enumerate(gi.hub_dict):
+                    if idx == 0:
+                        f.write(f'\nPhilosophical, Aesthetic, and Historical Interpretation\n')
+                        
+                    elif idx == 3:
+                        f.write(f'\nScientific and Social Inquiry\n')
+                        
+                    elif idx == 6:
+                        f.write(f'\nQuantitative Reasoning\n')
+                            
+                    elif idx == 8:
+                        f.write('\nDiversity, Civic Engagement, and Global Citizenship\n')
+                        
+                    elif idx == 11:
+                        f.write('\nCommunication\n')
+                        
+                    elif idx == 16:
+                        f.write('\nIntellectual Toolkit\n')
+                        
+                    f.write(f'{hub}: {gi.hub_dict[hub]}\n')
+            break
         
+        duplicate_count += 1
+            
+    return None
         
         
 if __name__ == '__main__':
-    mode_selection()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    mode_selection()     

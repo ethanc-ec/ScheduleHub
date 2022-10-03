@@ -5,6 +5,7 @@ def filter_numerical(string: str) -> str:
             result += char
     return result
 
+
 def cleaner(contents: dict) -> dict:
     
     # Description cleaner
@@ -33,6 +34,7 @@ def cleaner(contents: dict) -> dict:
             contents[i] = contents[i].strip()
 
     return contents
+     
      
 def clean_input(text: str) -> str:
     test = text.replace(' ', '')
@@ -66,4 +68,3 @@ def organize_class(list_of_classes: list) -> list:
         organized.append(infolist)
     
     return organized
-    

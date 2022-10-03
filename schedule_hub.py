@@ -45,6 +45,8 @@ def mode_selection():
 def mode_course_info() -> None:
     course_yr = input('\nEnter course code and year/semester (e.g. cdsds210 2022 fall or cdsds210 future): ').split()
     
+    start = time.perf_counter()
+    
     if len(course_yr) == 1:
         course_yr.append('future')
     elif 'future' not in course_yr:
@@ -55,6 +57,10 @@ def mode_course_info() -> None:
     info = gi.info_finder(course_yr[0], course_yr[1])
     
     gi.print_info(info)
+    
+    stop = time.perf_counter()
+    
+    print(f"\nDone in: {stop - start:0.4f} seconds")
     
     return None
 

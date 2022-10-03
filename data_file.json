@@ -1,0 +1,137 @@
+{
+    "qstsm132": {
+        "prereq": "SM131 previous or concurrent. CAS MA121/123. Open to non-Questrom students who have completed a semester of FT work at BU.",
+        "coreq": null,
+        "description": "This course offers an overview of fundamental financial analyses, such as time value of money, interest rates, basic valuation of cash flow streams, and basic stock and bond valuation. The content is relevant to understand a broad class of problems and decisions for businesses or individuals. It offers applications across decision domains. The teaching materials include online problem solving and case writing. Students may not take SM132 and FE101 for credit.",
+        "credit": "2",
+        "hub credit": null
+    },
+    "qstsm131": {
+        "prereq": "Required of all Questrom 1st-semester freshmen. Open to non-Questrom students who have completed a semester of FT work at BU.",
+        "coreq": null,
+        "description": "This course explores local and global ethical problems that managers face in markets for goods, services, labor, or capital. Through identification and discussion of the basic business disciplines, students uncover the interdependencies in the creation, delivery and capture of value. Students explore the complex analyses necessary to make ethical decisions vis-?-vis a multiplicity of stakeholders and in service of diverse personal and institutional goals. Stresses written and oral communication skills and logical reasoning as an ingredient for sound analysis and rational business planning. Effective Fall 2018, this course fulfills a single unit in the following BU Hub area: Ethical Reasoning.",
+        "credit": "4",
+        "hub credit": [
+            "Ethical Reasoning"
+        ]
+    },
+    "cascs111": {
+        "prereq": null,
+        "coreq": null,
+        "description": "The first course for computer science majors and anyone seeking a rigorous introduction. Develops computational problem-solving skills by programming in the Python language, and exposes students to variety of other topics from computer science and its applications. Carries MCS divisional credit in CAS. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Creativity/Innovation, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Critical Thinking",
+            "Creativity/Innovation"
+        ]
+    },
+    "cdsds120": {
+        "prereq": "Basic knowledge of a programming language such as Python is expected",
+        "coreq": "CDSDS110 OR equivalent.",
+        "description": "The first in a 3-course sequence (with CDS DS 121 and CDS DS 122) that introduces students to theoretical foundations of Data Science. Introduction to key concepts from Calculus (differentiation and integration), Probability (discrete and continuous random variables) and Linear Algebra (vector spaces, matrices, and linear systems). The course links mathematics and computational thinking through problem sets requiring students to answer mathematically- posed questions using computation.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning I"
+        ]
+    },
+    "cgsss201": {
+        "prereq": "First Year Writing Seminar (e.g., WR 100 or WR 120)",
+        "coreq": null,
+        "description": "SS201 explores the historical roots of our global political and economic scene from a comparative perspective. Students will examine the radical movements, ideologies, and revolutions that have shaped the contemporary world, focusing on a comparison of two or more nations or regions. Topics may include the history and power of nationalism, the legacy of imperialism, competing political ideologies, the rise of authoritarian and totalitarian regimes, terrorism and state violence, and the role popular collective action plays in effecting change. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Historical Consciousness, Global Citizenship and Intercultural Literacy, Research and Information Literacy. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Global Citizenship and Intercultural Literacy, Writing-Intensive Course, Research and Information Literacy.",
+        "credit": "4",
+        "hub credit": [
+            "Global Citizenship and Intercultural Literacy",
+            "Research and Information Literacy",
+            "Writing-Intensive Course"
+        ]
+    },
+    "cgsns201": {
+        "prereq": null,
+        "coreq": null,
+        "description": "Focuses on the major paradigms (and shifts) including the origin of life, molecular and cellular theories of life, human origins, genetics, evolutionary theory and biodiversity. Encourages use of quantitative and scientific tools required to explore scientific models and connects the scientific process with ethical and social concerns arising from our understanding of the origin, evolution and diversity of life including our own species. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Scientific Inquiry I, Quantitative Reasoning I, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Scientific Inquiry I",
+            "Quantitative Reasoning I",
+            "Critical Thinking"
+        ]
+    },
+    "cgsrh104": {
+        "prereq": null,
+        "coreq": null,
+        "description": "Through class discussion and learning experiences, students explore connections between readings assigned in Rhetoric and those in other courses, focusing on themes drawn from the two units that comprise the semester's curriculum. The course further develops skills in expository writing and introduces exploratory essay writing. Students continue to explore the contemporary relevance and meaning of the interdisciplinary curriculum. Students refine their skills in grammar, style, organization, and document design. Effective Fall 2018, this course fulfills a single unit in the following BU Hub areas: First-Year Writing Seminar, Digital/Multimedia Expression, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "First-Year Writing Seminar",
+            "Digital/Multimedia Expression",
+            "Critical Thinking"
+        ]
+    },
+    "cgshu104": {
+        "prereq": null,
+        "coreq": null,
+        "description": "This course is an interdisciplinary approach to literature and art history. The course focuses on the 19th and 20th centuries and concludes with the technologically complex 21st century. Assignments encourage research skills, critical thinking, and contextual awareness. Trips to historically and culturally important sites enhance the course's experiential component and augment the humanities' interdisciplinary significance. Effective Fall 2018, this course fulfills a single unit in the following BU Hub areas: Aesthetic Exploration, Historical Consciousness, Critical Thinking.",
+        "credit": "5",
+        "hub credit": [
+            "Aesthetic Exploration",
+            "Historical Consciousness",
+            "Critical Thinking"
+        ]
+    },
+    "cgsss104": {
+        "prereq": null,
+        "coreq": null,
+        "description": "This interdisciplinary course examines social change in the politics, economies, social structures, and culture of the West from the Industrial Revolution to the present. Students consider the impact of technological innovation, industrial capitalism, global war, genocide, and the ideologies that shaped these developments. The course concludes with the globalization of economies and social structures in an era of rising inequality. Visits to relevant sites will supplement classroom instruction. One lecture, two discussions, and two additional contact hours as assigned. [5 cr.] Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Social Inquiry II, Global Citizenship and Intercultural Literacy, Critical Thinking.",
+        "credit": "5",
+        "hub credit": [
+            "Global Citizenship and Intercultural Literacy",
+            "Social Inquiry II",
+            "Critical Thinking"
+        ]
+    },
+    "cgshu103": {
+        "prereq": null,
+        "coreq": null,
+        "description": "The course examines key figures and works in literary and artistic traditions from the ancient and classical periods through the Renaissance, concluding with a focus on the Enlightenment and Romanticism. The semester's units concentrate on how the works reflect cultural ideals and developments and on how they represent evolving aesthetic standards that have shaped conventions in literature and the arts. Coursework and assignments include learning trips to various sites of historical and cultural significance in the Boston area to emphasize the Humanities' relevance beyond the classroom. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Historical Consciousness, Critical Thinking.",
+        "credit": "5",
+        "hub credit": [
+            "Aesthetic Exploration",
+            "Historical Consciousness",
+            "Critical Thinking"
+        ]
+    },
+    "cgsss103": {
+        "prereq": null,
+        "coreq": null,
+        "description": "This interdisciplinary course examines social change in the politics, economies, social structures, and culture of the West from the ancient world through the Enlightenment. Students look at developments in governance, trade, social inequalities, and ideas that gave the West its distinctive character, including the rise of its key institution, democracy. To interpret historical change critically, students are introduced to the social science \"toolkit\" of analytical concepts. Assignments outside the classroom will encourage students to consider how history has shaped today's world. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Social Inquiry I, The Individual in Community, Critical Thinking.",
+        "credit": "5",
+        "hub credit": [
+            "Social Inquiry I",
+            "The Individual in Community",
+            "Critical Thinking"
+        ]
+    },
+    "cgsrh103": {
+        "prereq": null,
+        "coreq": null,
+        "description": "In Rhetoric 103, you will be taken chronologically through key periods in history to learn about the origin and development of the art of Rhetoric and its relevance today, ultimately in order to enable you to apply key rhetorical skills to your own textual and verbal practice. Students will receive semester-long instruction and practice in writing, oral communication, and research and information literacy. Effective Fall 2018, this course fulfills a single unit in the following BU Hub areas: Writing, Research, and Inquiry, Oral and/or Signed Communication, Research and Information Literacy.",
+        "credit": "4",
+        "hub credit": [
+            "Writing, Research, and Inquiry",
+            "Oral and/or Signed Communication",
+            "Research and Information Literacy"
+        ]
+    },
+    "cdsds100": {
+        "prereq": null,
+        "coreq": null,
+        "description": "This course introduces students to three perspectives that are fundamental to their ability to reason with data: critical thinking, inferential thinking, and computational thinking. Through data modeling and visualization, students will construct and communicate arguments that are rooted in data. The course expects only basic computer knowledge and teaches concepts and skills in computer programming (Python), linear regression, and statistical inference. The course delves into dilemmas surrounding data analysis, such as balancing individual privacy and social utility, and prepares students for the data driven world all around us. Students with interests from politics to sports, finance to journalism, entrepreneurship to smart cities, etc., can use the knowledge of data science they gain in this class to enhance those interests. Not to mention a grounding for students who want to pursue the field of data science itself. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Social Inquiry 1, Digital/Multimedia Expression, Research and Information Literacy.",
+        "credit": "4",
+        "hub credit": [
+            "Social Inquiry I",
+            "Digital/Multimedia Expression",
+            "Research and Information Literacy"
+        ]
+    }
+}

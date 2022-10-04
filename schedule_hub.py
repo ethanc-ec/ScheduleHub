@@ -1,6 +1,6 @@
 import time
 import get_info as gi
-from pathlib import Path
+from archive_data import *
 
 
 
@@ -9,7 +9,7 @@ def mode_selection():
     while True:
         print('\nModes: \n')
         
-        for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', 'Write to txt', 'Exit']):
+        for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', 'Write to txt', 'Update Data','Exit']):
             print(f"{idx + 1}. {val}")
                         
         mode = input('\nSelect a mode: ').lower()
@@ -34,7 +34,11 @@ def mode_selection():
             mode_txt()
             continue
         
-        elif mode in ['6', 'exit']:
+        elif mode in ['6', 'update data']:
+            mode_update()
+            continue
+        
+        elif mode in ['7', 'exit']:
             print('Exiting. . .')
             quit()
             
@@ -166,7 +170,28 @@ def mode_txt():
         duplicate_count += 1
             
     return None
+
+
+def mode_update() -> NoneType:
+    
+    start = time.perf_counter()
+    
+    with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+        data = json.load(data_file)
+
+    new_data = {}       
+    for course in data.keys():
+        new_data[course] = gi.info_finder(course, 'future', True)
+        print(f'Updated: {course}')
         
+    update_data(new_data)
         
+    stop = time.perf_counter()
+    print(f"\nDone in: {stop - start:0.4f} seconds")
+        
+    return None
+    
+    
+    
 if __name__ == '__main__':
     mode_selection()     

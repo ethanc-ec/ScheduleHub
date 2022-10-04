@@ -1,8 +1,6 @@
 import re
 import requests
 
-from types import NoneType
-from pathlib import Path
 from bs4 import BeautifulSoup
 
 from help_funcs import *
@@ -33,8 +31,8 @@ def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> Be
     return content
 
 
-def info_finder(input_class: str, yearsem: str = 'future') -> dict:
-    if in_data(input_class):
+def info_finder(input_class: str, yearsem: str, skip:str = False) -> dict:
+    if in_data(input_class) and not skip:
         class_data = pull_data(input_class)
         return class_data
     
@@ -68,8 +66,8 @@ def info_finder(input_class: str, yearsem: str = 'future') -> dict:
     data_writing = {
         input_class : cleaned
     }
-    
-    write_data(data_writing)
+    if not skip:
+        write_data(data_writing)
     
     return cleaned
 

@@ -14,7 +14,7 @@ def in_data(class_) -> bool:
             return False        
         
         
-def write_data(new_data) -> NoneType:
+def write_data(new_data: dict[str, dict]) -> NoneType:
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         try:
             old_data = json.load(data_file)
@@ -35,3 +35,16 @@ def pull_data(class_) -> dict:
         data = json.load(data_file)
         
     return data[class_]
+
+
+def pull_classes() -> list[str]:
+    with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+        data = json.load(data_file)
+        
+    return list(data.keys())
+
+def update_data(data: dict[str, dict]) -> bool:
+    with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
+        json.dump(data, data_file, indent = 4)
+        
+    return None

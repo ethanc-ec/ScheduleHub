@@ -177,25 +177,27 @@ def hub_collector(filename, yearsem: str = 'future') -> dict:
         }
         
         print('\nProgress: ')
+
         for i in class_txt:
             if in_data(i):
                 class_data = pull_data(i)
                 info = class_data['hub credit']
-                
+                        
+            elif not i or i[0] == '#':
+                continue
+             
             else:
                 info = hub_finder(i, yearsem)
                 
             if isinstance(info, NoneType):
-                break
-            
+                continue
+                        
             for j in info:
                 try:
                     hub_dict_base[j][1] += 1
                 except:
                     if j == 'Scientific Inquiry II' or j == 'Social Inquiry II':
                         hub_dict_base['Scientific Inquiry II/Social Inquiry II'][1] += 1
-                        continue
-            
             print(f'{i} done')
             
     global hub_dict
@@ -231,3 +233,6 @@ def print_all_hub():
     
     for hub in hub_dict:
         print(f'{hub}: {hub_dict[hub]}')
+        
+if __name__ == '__main__':
+    hub_collector('test.txt')

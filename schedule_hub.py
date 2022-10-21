@@ -1,7 +1,7 @@
 import time
 import get_info as gi
 from archive_data import *
-
+from create_bat import create_bat
 
 
 def mode_selection():
@@ -9,7 +9,9 @@ def mode_selection():
     while True:
         print('\nModes: \n')
         
-        for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', 'Write to txt', 'Update Data','Exit']):
+        for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', \
+            'Write to txt', 'Update Data', 'Create bat', 'Exit']):
+            
             print(f"{idx + 1}. {val}")
                         
         mode = input('\nSelect a mode: ').lower()
@@ -38,13 +40,19 @@ def mode_selection():
             mode_update()
             continue
         
-        elif mode in ['7', 'exit']:
+        elif mode in ['7', 'create bat']:
+            mode_create_bat()
+            continue
+        
+        elif mode in ['8', 'exit']:
             print('Exiting. . .')
-            quit()
+            break
             
         else:
             print('Invalid input. Try again.')
+            continue
         
+    quit()
     
 def mode_course_info() -> None:
     course_yr = input('\nEnter course code and year/semester (e.g. cdsds210 2022 fall or cdsds210 future): ').split()
@@ -192,6 +200,10 @@ def mode_update() -> NoneType:
     return None
     
     
-    
+def mode_create_bat() -> NoneType:
+    create_bat()
+    print('bat file created')
+    return None
+
 if __name__ == '__main__':
     mode_selection()     

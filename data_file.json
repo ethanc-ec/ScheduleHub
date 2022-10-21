@@ -1,4 +1,126 @@
 {
+    "cascs411": {
+        "prereq": "CAS CS 112.",
+        "coreq": null,
+        "description": "Introduction to the construction of reliable software. Topics may include software tools, software testing methodologies, retrofitting, regression testing, structured design and structured programming, software characteristics and quality, complexity, entropy, deadlock, fault tolerance, formal proofs of program correctness, chief program teams, and structured walk-throughs. Effective Fall 2019, this course fulfills a single unit in each of the following BU Hub area: Teamwork/Collaboration.",
+        "credit": "4",
+        "hub credit": [
+            "Teamwork/Collaboration"
+        ]
+    },
+    "cdsds519": {
+        "prereq": "CDSDS310 OR CASCS411 OR equivalent experience in software developmentand consent of instructor. Consent provided upon successful completion of pass/fail diagnostic test to assess student readiness fo",
+        "coreq": null,
+        "description": "This course offers students in computing disciplines the opportunity to apply their programming and system development skills by working on real-world projects provided from partnering organizations within and outside of BU, which are curated by Spark! The course offers a range of project options where students can improve their technical skills, while also gaining the soft skills necessary to deliver projects aligned to the partner's goals. These include teamwork and communications skills and software development processes. All students participating in the course are expected to complete a software engineering project including a final presentation to the partner organization. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Ethical Reasoning, Oral and/or Signed Communication, Teamwork/Collaboration.",
+        "credit": "4",
+        "hub credit": [
+            "Ethical Reasoning",
+            "Oral and/or Signed Communication",
+            "Teamwork/Collaboration"
+        ]
+    },
+    "cascs112": {
+        "prereq": "CAS CS 111; or equivalent.",
+        "coreq": null,
+        "description": "Covers advanced programming techniques and data structures. Topics include recursion, algorithm analysis, linked lists, stacks, queues, trees, graphs, tables, searching, and sorting. Carries MCS divisional credit in CAS. Effective Fall 2018, this course fulfills a single unit in the following BU Hub areas: Quantitative Reasoning II, Creativity/Innovation, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Critical Thinking",
+            "Creativity/Innovation"
+        ]
+    },
+    "cdsds110": {
+        "prereq": null,
+        "coreq": null,
+        "description": "CDS DS 110 is the first in a two-course sequence (leading to CDS DS 210) that builds students' competence in computing techniques central to data science. Students will use Python to explore fundamental CS concepts and processes used in data science with a focus on descriptive data analysis, including data structures, development of functions and more advanced recursion, object- oriented programming, data processing and data visualization. Numpy, pandas, and matplotlib will be used to analyze real-world data. Prior experience with Python is not required.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning I",
+            "Teamwork/Collaboration"
+        ]
+    },
+    "casma214": {
+        "prereq": "CAS MA 213; or consent of instructor.",
+        "coreq": null,
+        "description": "Students may receive credit for not more than one of the following courses: CAS MA 116, MA 214, or MA 614. Inference about proportions, goodness of fit, student's t-distribution, tests for normality; two-sample comparisons, regression and correlation, tests for linearity and outliers, residual analysis, contingency tables, analysis of variance. Carries MCS divisional credit in CAS. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Teamwork/Collaboration. Effective Fall 2020, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Critical Thinking, Teamwork/Collaboration.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Critical Thinking",
+            "Teamwork/Collaboration"
+        ]
+    },
+    "cdsds320": {
+        "prereq": "CDSDS110 or equivalent AND CDSDS122 or equivalent",
+        "coreq": null,
+        "description": "This course covers the fundamental principles underlying the design and analysis of algorithms. We will walk through classical design methods, such as greedy algorithms, design and conquer, and dynamic programming, focusing on applications in data science. We will also study algorithmic methods more specific to data science and machine learning. The course places a particular emphasis on algorithmic efficiency, crucial with large and/or streaming data sets, for which multiple scans of data are infeasible, including the use of approximation and randomized algorithms. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Critical Thinking"
+        ]
+    },
+    "cdsds310": {
+        "prereq": "CDSDS110 AND CDSDS210",
+        "coreq": null,
+        "description": "Course focused on developing students' capacity to design and implement data flows and the computational workflows meant to inform online/offline decision-making within large systems. Students explore the data science lifecycle, including question formulation, data collection and cleaning (data wrangling), exploratory data analysis and visualization, statistical inference and prediction, and decision-making. Relational (SQL) and MapReduce (noSQL) paradigms used to assemble analysis, optimization, and decision-making algorithms to track and scale data.",
+        "credit": "4",
+        "hub credit": null
+    },
+    "cdsds122": {
+        "prereq": "CDSDS121 OR equivalent",
+        "coreq": null,
+        "description": "CDS DS 122 is the third in a three-course sequence (with CDS DS 120 and CDS DS 121) that introduces students to theoretical foundations of Data Science. DS 122 covers topics in probability (including common probability distributions, conditional probability, independence, Bayes Theorem, prior and posterior distributions, sampling, and the central limit theorem), statistics (including maximum likelihood), basic numerical optimization (including gradient descent methods), and topics in calculus (including sequences and series). Knowledge of a programming language (such as Python) is expected. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Critical Thinking"
+        ]
+    },
+    "cdsds210": {
+        "prereq": "CDSDS110 OR equivalent",
+        "coreq": null,
+        "description": "Second course in the CDS DS-110-210 sequence. The first half of DS 210 continues the Python programming experience begun in DS-110, with enhanced focus on machine learning applications. The second half of the course introduces students to compiled programming languages, such as Rust, Go and Java, suitable for building large projects. Basic data structures (stacks, queues, priority queues, binary search trees), techniques for representing graphs, and basic graph algorithms will be explored. Concepts are developed and reinforced through consideration of data-driven inquiries in real-world settings. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Digital/Multimedia Expression, Creativity/Innovation.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Digital/Multimedia Expression",
+            "Creativity/Innovation"
+        ]
+    },
+    "cdsds121": {
+        "prereq": "CDSDS120 OR equivalent; CDSDS110 OR equivalent.",
+        "coreq": null,
+        "description": "CDS 121 is the second in the three-course sequence (CDS DS 120, 121, 122) that introduces students to theoretical foundations of Data Science. DS 121 covers an introduction to key concepts from Linear Algebra (vector space, independence, orthogonality and matrix factorizations). The DS theme running through the course is exploratory data analysis, enabling a better understanding of the data at hand. The course will link mathematical concepts with computational thinking, specifically through the use of problem sets that require students to answer mathematically-posed questions using computation. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning I, Digital/Multimedia Expression, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning I",
+            "Digital/Multimedia Expression",
+            "Critical Thinking"
+        ]
+    },
+    "cgshu202": {
+        "prereq": null,
+        "coreq": null,
+        "description": "The course focuses on the application of philosophical ideas to various areas of modern life, such as politics, science, business, personal development, education, and religious faith. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Philosophical Inquiry and Life's Meanings, Ethical Reasoning, Creativity/Innovation.",
+        "credit": "4",
+        "hub credit": [
+            "Philosophical Inquiry and Life's Meanings",
+            "Ethical Reasoning",
+            "Creativity/Innovation"
+        ]
+    },
+    "cgsns202": {
+        "prereq": null,
+        "coreq": null,
+        "description": "What is the fate of the biosphere and our species? Can humans reconcile economic and technological growth with ecological sustainability? This course examines the impact of one species, Homo sapiens, on the ecosystems of the biosphere, seeking answers to these broad questions. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Scientific Inquiry II, Teamwork/Collaboration.",
+        "credit": "4",
+        "hub credit": [
+            "Scientific Inquiry II",
+            "Teamwork/CollaborationBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+        ]
+    },
     "qstsm132": {
         "prereq": "SM131 previous or concurrent. CAS MA121/123. Open to non-Questrom students who have completed a semester of FT work at BU.",
         "coreq": null,
@@ -13,17 +135,6 @@
         "credit": "4",
         "hub credit": [
             "Ethical Reasoning"
-        ]
-    },
-    "cascs111": {
-        "prereq": null,
-        "coreq": null,
-        "description": "The first course for computer science majors and anyone seeking a rigorous introduction. Develops computational problem-solving skills by programming in the Python language, and exposes students to variety of other topics from computer science and its applications. Carries MCS divisional credit in CAS. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Creativity/Innovation, Critical Thinking.",
-        "credit": "4",
-        "hub credit": [
-            "Quantitative Reasoning II",
-            "Critical Thinking",
-            "Creativity/Innovation"
         ]
     },
     "cdsds120": {
@@ -55,6 +166,17 @@
             "Scientific Inquiry I",
             "Quantitative Reasoning I",
             "Critical Thinking"
+        ]
+    },
+    "cascs111": {
+        "prereq": null,
+        "coreq": null,
+        "description": "The first course for computer science majors and anyone seeking a rigorous introduction. Develops computational problem-solving skills by programming in the Python language, and exposes students to variety of other topics from computer science and its applications. Carries MCS divisional credit in CAS. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Creativity/Innovation, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Critical Thinking",
+            "Creativity/Innovation"
         ]
     },
     "cgsrh104": {

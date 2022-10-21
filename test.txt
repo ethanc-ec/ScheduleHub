@@ -1,13 +1,32 @@
+# 2022 spring
 cgsrh103
 cgsss103
 cgshu103
 cdsds100
+
+# 2022 summer 1
 cgsss104
 cgshu104
 cgsrh104
+
+# 2022 summer 2
+cascs111
+
+# 2022 fall
 cgsns201
 cgsss201
 cdsds120
-cascs111
 qstsm131
 qstsm132
+
+# 2023 spring
+cgsns202
+cgshu202
+cdsds121
+cdsds210
+
+# 2023 fall
+cdsds122
+cdsds310
+cdsds320
+casma214

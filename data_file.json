@@ -1,4 +1,22 @@
 {
+    "cdsds380": {
+        "prereq": "CDSDS110 AND CDSDS320",
+        "coreq": null,
+        "description": "This course develops students' ability to critically examine and question the interplay between data science and computational technologies on the one hand, and society and public policy on the other. Students will complete exercises to demonstrate their facility with key ethics tools and techniques, and analyze a series of real-world case studies presented alongside ethical tools and analyses that are useful both for staying alert to emerging ethical challenges and responding to them as they arise in both employment settings and everyday life. Effective Fall 2022, this course fulfills a single unit in each of the following BU Hub areas: Ethical Reasoning, Social Inquiry II, Research and Information Literacy.",
+        "credit": "4",
+        "hub credit": [
+            "Ethical Reasoning",
+            "Social Inquiry II",
+            "Research and Information Literacy"
+        ]
+    },
+    "cdsds219": {
+        "prereq": null,
+        "coreq": null,
+        "description": "Taught by industry software veterans who serve as Spark! Engineers in Residence in CDS, this 2-credit course presents students with an unadulterated view of what they need to know as they take on software engineering projects, in preparation for careers as full-stack software/data engineers. From a brass tacks perspective, the course covers a number of tactical topics. The course covers the language of modern software development including patterns, source control, pull requests, open source, containerization, virtualization, and agile vs waterfall development methods. Additionally, the course introduces students to a few of the specialized professional software engineering and DevOps roles in industry.",
+        "credit": "2",
+        "hub credit": null
+    },
     "cascs411": {
         "prereq": "CAS CS 112.",
         "coreq": null,

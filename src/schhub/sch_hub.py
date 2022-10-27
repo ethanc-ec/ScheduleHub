@@ -289,7 +289,11 @@ def in_data(class_) -> bool:
             return False        
         
         
-def write_data(new_data: dict[str, dict]) -> None:
+def write_data(new_data: dict) -> None:
+    """ returns None
+        inputs: a dictionary with class name as key and a dictionary of class info as value
+    """
+    
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         try:
             old_data = json.load(data_file)
@@ -320,7 +324,10 @@ def pull_classes() -> list[str]:
     return list(data.keys())
 
 
-def update_data(data: dict[str, dict]) -> None:
+def update_data(data: dict) -> None:
+    """ returns None
+        inputs: a dictionary with class name as key and a dictionary of class info as value
+    """
     with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
         json.dump(data, data_file, indent = 4)
         

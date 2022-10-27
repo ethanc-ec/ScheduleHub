@@ -27,9 +27,7 @@ def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> Be
     elif finder == 'section':
         code_joined = ''.join(code).lower()
         URL = f"https://www.bu.edu/phpbin/course-search/section/?t={code_joined}&semester={time}&return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D10%26adv%3D1%26nolog%3D%26search_adv_all%3D{code[0]}%2B{code[1]}%2B{code[2]}%26yearsem_adv%3D{time}%26credits%3D%2A%26pathway%3D%26hub_match%3Dall"
-    
-    print(URL, '\n')
-    
+        
     page = requests.get(URL)
     
     content = BeautifulSoup(page.content, 'html.parser')
@@ -176,9 +174,11 @@ def hub_collector(filename, yearsem: str = 'future') -> dict:
             for j in info:
                 try:
                     hub_dict[j][1] += 1
-                except not KeyboardInterrupt:
+                    
+                except:
                     if j == 'Scientific Inquiry II' or j == 'Social Inquiry II':
                         hub_dict['Scientific Inquiry II/Social Inquiry II'][1] += 1
+                        
             print(f'{i} done')
 
     return hub_dict
@@ -259,7 +259,7 @@ def cleaner(contents: dict) -> dict:
      
      
 # Helper function for content_getter(), cleans the user input
-def clean_input(text: str) -> str:
+def clean_input(text: str) -> list:
     test = text.replace(' ', '')
     assert(len(test) == 8)
     
@@ -284,7 +284,7 @@ def in_data(class_) -> bool:
             data = json.load(data_file)
             return class_ in data
         
-        except not KeyboardInterrupt:
+        except:
             return False        
         
         
@@ -296,7 +296,8 @@ def write_data(new_data: dict) -> None:
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         try:
             old_data = json.load(data_file)
-        except not KeyboardInterrupt:
+            
+        except:
             old_data = False
         
     with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:

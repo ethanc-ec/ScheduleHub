@@ -1,7 +1,6 @@
 import re
 import requests
 import json
-import sys
 
 from time import perf_counter
 from pathlib import Path

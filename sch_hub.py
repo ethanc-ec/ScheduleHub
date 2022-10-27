@@ -8,10 +8,6 @@ from pathlib import Path
 from types import NoneType
 from bs4 import BeautifulSoup
 
-
-
-
-
 """
 Functions for scraping the information from the website
 Can also grab from 'data_file.json'
@@ -19,12 +15,13 @@ Can also grab from 'data_file.json'
 
 def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> BeautifulSoup:
     code = clean_input(input_class)
+    
     if yearsem.lower() == 'future':
         time = '*'
+        
     else:
         split_year = yearsem.upper().split(' ')
         time = split_year[0] + '-' + split_year[1]
-        
     
     if finder == 'info':
         URL = f"https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=10&adv=1&nolog=&search_adv_all={code[0]}+{code[1]}+{code[2]}&yearsem_adv={time}&credits=*&pathway=&hub_match=all&pagesize=10"
@@ -36,10 +33,10 @@ def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> Be
     print(URL, '\n')
     
     page = requests.get(URL)
+    
     content = BeautifulSoup(page.content, 'html.parser')
     
     return content
-
 
 def info_finder(input_class: str, yearsem: str, skip:str = False) -> dict:
     if in_data(input_class) and not skip:
@@ -80,7 +77,6 @@ def info_finder(input_class: str, yearsem: str, skip:str = False) -> dict:
         write_data(data_writing)
     
     return cleaned
-
 
 def hub_finder(input_class: str, yearsem: str = 'future') -> list:
     page_content = content_getter('info', input_class, yearsem)
@@ -303,6 +299,7 @@ def write_data(new_data: dict[str, dict]) -> None:
             new_data.update(old_data)
         data_file.seek(0)
         json.dump(new_data, data_file, indent = 4)
+        
         
     return None
 

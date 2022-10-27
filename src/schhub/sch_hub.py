@@ -317,7 +317,10 @@ def pull_data(class_) -> dict:
     return data[class_]
 
 
-def pull_classes() -> list[str]:
+def pull_classes() -> list:
+    """ returns all classes in list[str]
+        inputs: None
+    """
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         data = json.load(data_file)
         

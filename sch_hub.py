@@ -331,21 +331,6 @@ def update_data(data: dict[str, dict]) -> None:
 
 
 
-"""
-Batch file creation function
-"""
-def create_bat():
-    _ = open('SchHub.bat', 'w+')
-
-    with open('SchHub.bat', 'w+') as bat:
-        python_path = sys.exec_prefix + '\python.exe'
-        bat.write(f'@echo off\n"{python_path}" "{Path(__file__).parent.absolute()}\schedule_hub.py"\npause')
-
-    return None
-
-
-
-
 
 """
 Terminal 'mode' based UI
@@ -360,7 +345,7 @@ class ModeSelection:
             print('\nModes: \n')
             
             for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', \
-                'Write to txt', 'Update Data', 'Create bat', 'Exit']):
+                'Write to txt', 'Update Data', 'Exit']):
                 
                 print(f"{idx + 1}. {val}")
                             
@@ -392,10 +377,7 @@ class ModeSelection:
             elif mode in ['6', 'update data']:
                 self.mode_update()
             
-            elif mode in ['7', 'create bat']:
-                self.mode_create_bat()
-            
-            elif mode in ['8', 'exit']:
+            elif mode in ['7', 'exit']:
                 print('Exiting. . .')
                 break
                 
@@ -554,12 +536,11 @@ class ModeSelection:
         print(f"\nDone in: {stop - start:0.4f} seconds")
             
         return None
-        
-        
-    def mode_create_bat(self) -> None:
-        create_bat()
-        print('bat file created')
-        return None
+
+
+
+
+
 
 if __name__ == '__main__':
     temp = ModeSelection()

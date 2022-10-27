@@ -1,5 +1,5 @@
 # ScheduleHub
-[![Tests](https://github.com/ethanc-ec/SlapThatLikeButton-TestingStarterProject/actions/workflows/tests.yml/badge.svg)](https://github.com/ethanc-ec/SlapThatLikeButton-TestingStarterProject/actions/workflows/tests.yml)
+[![Tests](https://github.com/ethanc-ec/ScheduleHub/actions/workflows/tests.yml/badge.svg)](https://github.com/ethanc-ec/ScheduleHub/actions/workflows/tests.yml)
 
 A small project made simply because I'm too lazy to do graduation and class requirements by hand.
 

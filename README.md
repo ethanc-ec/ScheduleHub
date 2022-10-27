@@ -4,9 +4,8 @@
 A small project made simply because I'm too lazy to do graduation and class requirements by hand.
 
 To Use:
-  1. Download everything and keep it all in one folder
-  2. Run the modes.py file with an IDE or Terminal/Command Prompt
-    - There is an option to create a batch file to make running the code easier
+  1. Download the [latest release](https://github.com/ethanc-ec/ScheduleHub/releases) and keep it all in one folder
+  2. Run the sch_hub.py file with an IDE or Terminal/Command Prompt
   
 Future Features:
   - GUI

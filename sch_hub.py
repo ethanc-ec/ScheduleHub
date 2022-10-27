@@ -125,9 +125,8 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list[list]:
     # each entry in single_entries is a list of the following:
     # section, open seats, instructor, type, location, schedule, dates, notes
     
-
-    
     return single_entries
+
 
 def hub_collector(filename, yearsem: str = 'future') -> dict:  
     with open(Path(__file__).parent / filename) as class_txt:
@@ -207,14 +206,14 @@ def print_section(section_list):
     return None 
 
 
-def print_all_hub():
+def print_all_hub() -> None:
     hub_dict = hub_collector('classes.txt')
     print('\nTotal Hub Credits: ')
     
     for hub in hub_dict:
         print(f'{hub}: {hub_dict[hub]}')
 
-
+    return None
 
 
 

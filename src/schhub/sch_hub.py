@@ -5,7 +5,6 @@ import sys
 
 from time import perf_counter
 from pathlib import Path
-from types import NoneType
 from bs4 import BeautifulSoup
 
 """
@@ -169,7 +168,7 @@ def hub_collector(filename, yearsem: str = 'future') -> dict:
             else:
                 info = hub_finder(i, yearsem)
                 
-            if isinstance(info, NoneType):
+            if info is None:
                 continue
                         
             for j in info:

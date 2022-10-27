@@ -1,4 +1,5 @@
 # ScheduleHub
+![Tests](https://github.com/ethanc-ec/ScheduleHub/blob/main/.github/workflows/tests.yml/badge.svg)
 
 A small project made simply because I'm too lazy to do graduation and class requirements by hand.
 

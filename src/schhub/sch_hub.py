@@ -94,7 +94,10 @@ def hub_finder(input_class: str, yearsem: str = 'future') -> list:
     return hub_list
     
 
-def section_finder(input_class: str, yearsem: str = 'future') -> list[list]:
+def section_finder(input_class: str, yearsem: str = 'future') -> list:
+    """ returns a nested list with all the sections
+        inputs: class code, year + semester
+    """
     page_content = content_getter('section', input_class, yearsem)
 
     is_valid = page_content.find_all('div', class_="coursearch-course-container") 

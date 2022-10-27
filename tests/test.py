@@ -1,5 +1,5 @@
 import pytest
-from sch_hub import *
+from sch_hub import info_finder, hub_finder, filter_numerical
 
 class TestClass:
     # Finder tests

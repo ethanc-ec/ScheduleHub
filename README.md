@@ -10,3 +10,4 @@ To Use:
 Future Features:
   - GUI
   - Auto schedule maker using specified parameters and classes
+  - Full JSON file with *all* Boston University courses for offline use

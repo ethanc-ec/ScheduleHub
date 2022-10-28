@@ -1,4 +1,16 @@
 {
+    "hubxc475": {
+        "prereq": null,
+        "coreq": null,
+        "description": "The Spark! Innovation Fellowship program supports student innovators passionate about solving problems through technology. The course provides a structured process where students advance a technology project of their own creation, or an innovative solution for a problem sponsored by an external partner. The goal is to design, develop, and deploy a working prototype in one semester with the support of industry mentors. Students can participate as part of a pre-formed team or they can be assigned to a team. There are two participant tracks for each team: developers and designers. Effective Summer 2020, this course fulfills a single unit in each of the following BU Hub areas: Oral and/or Signed Communication, Creativity/Innovation, Research and Information Literacy, Teamwork/Collaboration.",
+        "credit": "4",
+        "hub credit": [
+            "Oral and/or Signed Communication",
+            "Research and Information Literacy",
+            "Teamwork/Collaboration",
+            "Creativity/Innovation"
+        ]
+    },
     "qstac221": {
         "prereq": "QST SM131; QST SM132 previous or concurrent.",
         "coreq": null,

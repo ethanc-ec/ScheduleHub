@@ -1,37 +1,30 @@
-# 2022 spring
-cgsrh103
-cgsss103
-cgshu103
+# This is a sample course selection for a DS major
+
+# Year 1 Fall
 cdsds100
+caswr120
 
-# 2022 summer 1
-cgsss104
-cgshu104
-cgsrh104
-
-# 2022 summer 2
-cascs111
-
-# 2022 fall
-cgsns201
-cgsss201
+# Year 1 Spring
+cdsds110
 cdsds120
-qstsm131
-qstsm132
 
-# 2023 spring
-cgsns202
-cgshu202
-cdsds121
+# Year 2 Fall
 cdsds210
-cdsds219
-
-# 2023 fall
-cdsds122
-cdsds310
+cdsds121
 casma214
-qstba222
 
-# 2024 spring
+# Year 2 Spring
+cdsds310
+cdsds122
+
+# Year 3 Fall
 cdsds320
-qstac221
+
+# Year 3 Spring
+cdsds340
+
+# Year 4 Fall
+cdsds380
+
+# Year 4 Spring
+cdsds490

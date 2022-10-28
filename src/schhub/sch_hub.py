@@ -27,7 +27,9 @@ def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> Be
     elif finder == 'section':
         code_joined = ''.join(code).lower()
         URL = f"https://www.bu.edu/phpbin/course-search/section/?t={code_joined}&semester={time}&return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D10%26adv%3D1%26nolog%3D%26search_adv_all%3D{code[0]}%2B{code[1]}%2B{code[2]}%26yearsem_adv%3D{time}%26credits%3D%2A%26pathway%3D%26hub_match%3Dall"
-        
+      
+    # print(URL)
+             
     page = requests.get(URL)
     
     content = BeautifulSoup(page.content, 'html.parser')
@@ -158,9 +160,11 @@ def hub_collector(filename, yearsem: str = 'future') -> dict:
         print('\nProgress: ')
 
         for i in class_txt:
+            pulled = False
             if in_data(i):
                 class_data = pull_data(i)
                 info = class_data['hub credit']
+                pulled = True
                         
             elif not i or i[0] == '#':
                 continue
@@ -179,7 +183,11 @@ def hub_collector(filename, yearsem: str = 'future') -> dict:
                     if j == 'Scientific Inquiry II' or j == 'Social Inquiry II':
                         hub_dict['Scientific Inquiry II/Social Inquiry II'][1] += 1
                         
-            print(f'{i} done')
+                        
+            if not pulled:
+                print(f'{i} done [scraped from website]')
+            else:
+                print(f'{i} done [pulled from data]')
 
     return hub_dict
 

@@ -55,6 +55,9 @@ def info_finder(input_class: str, yearsem: str, skip:str = False) -> dict:
     # For finding the prereq, coreq, description and credit
     full = results.find('div', class_="coursearch-result-content-description")
 
+    if full is None:
+        return False
+
     # Gets: [prereq, coreq,description, numerical credit]
     full_list = full.text.splitlines()
 
@@ -89,7 +92,7 @@ def hub_finder(input_class: str, yearsem: str = 'future') -> list:
         hub_list[idx] = re.sub('<[^>]+>', '', val).strip()
             
     info_finder(input_class, yearsem)
-            
+           
     return hub_list
     
 
@@ -418,7 +421,10 @@ class ModeSelection:
         
         info = info_finder(course_yr[0], course_yr[1])
         
-        print_info(info)
+        if not info:
+            print('No info found')
+        else:
+            print_info(info)
         
         stop = perf_counter()
         
@@ -537,20 +543,53 @@ class ModeSelection:
 
     def mode_update(self) -> None:
         
-        start = perf_counter()
+        start_all = perf_counter()
         
-        with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
-            data = json.load(data_file)
+        page_counter = 1
+        class_list = [] 
 
-        new_data = {}       
-        for course in data.keys():
-            new_data[course] = info_finder(course, 'future', True)
-            print(f'Updated: {course}')
+        print('Searching all classes. . .')
+        
+        while True:
+            URL = 'https://www.bu.edu/academics/grs/courses/'     
+            page = requests.get(URL + f'{page_counter}')
+            content = BeautifulSoup(page.content, 'html.parser')
+
+            results = content.find('ul', class_='course-feed')
+            
+            if len(str(results.prettify())) == 31:
+                break
+            
+            for i in results:
+                a = i.next_sibling
+                if a is None or not len(a.text.strip()):
+                    continue
+                else:
+                    class_code = a.text.split(':')[0].strip().replace(' ', '').lower()
+                    class_list.append(class_code)
+                    
+            print(f'Group {page_counter} done')
+            page_counter += 1
+        
+        cl_stop = perf_counter()
+        print(f'\nAll classes found in {cl_stop - start_all:0.4f} seconds\n')
+                    
+        new_data = {} 
+        cl_len = len(class_list)
+              
+        for idx, course in enumerate(class_list):
+            temp = info_finder(course, 'future', True)
+            if not temp:
+                print(f'No info found for {course}')
+                continue
+            
+            new_data[course] = temp
+            print(f'Updated: {course} ({idx + 1}/{cl_len})')
             
         update_data(new_data)
             
-        stop = perf_counter()
-        print(f"\nDone in: {stop - start:0.4f} seconds")
+        stop_all = perf_counter()
+        print(f"\nDone in: {stop_all - start_all:0.4f} seconds")
             
         return None
 

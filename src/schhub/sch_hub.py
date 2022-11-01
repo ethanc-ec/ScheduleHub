@@ -75,7 +75,7 @@ def info_finder(input_class: str, yearsem: str, skip:str = False) -> dict:
         input_class : cleaned
     }
     if not skip:
-        write_data(data_writing)
+        merge_data(data_writing)
     
     return cleaned
 
@@ -299,7 +299,7 @@ def in_data(class_) -> bool:
             return False        
         
         
-def write_data(new_data: dict) -> None:
+def merge_data(new_data: dict) -> None:
     """ returns None
         inputs: a dictionary with class name as key and a dictionary of class info as value
     """
@@ -338,13 +338,25 @@ def pull_classes() -> list:
     return list(data.keys())
 
 
-def update_data(data: dict) -> None:
+def dump_data(data: dict) -> None:
     """ returns None
         inputs: a dictionary with class name as key and a dictionary of class info as value
     """
     with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
         json.dump(data, data_file, indent = 4)
         
+    return None
+
+def update_data() -> None:
+    classes = pull_classes()
+    new_data = {}
+    
+    for i in classes:
+        new_data[i] = info_finder(i, 'future', True)
+        print(f'{i} updated')
+        
+    dump_data(new_data)
+    
     return None
 
 
@@ -365,7 +377,7 @@ class ModeSelection:
             print('\nModes: \n')
             
             for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', \
-                'Write to txt', 'Update Data', 'Exit']):
+                'Write to txt', 'Update Data', 'Grab Data','Exit']):
                 
                 print(f"{idx + 1}. {val}")
                             
@@ -397,7 +409,10 @@ class ModeSelection:
             elif mode in ['6', 'update data']:
                 self.mode_update()
             
-            elif mode in ['7', 'exit']:
+            elif mode in ['7', 'grab data']:
+                self.mode_grab()
+                
+            elif mode in ['8', 'exit']:
                 print('Exiting. . .')
                 break
                 
@@ -542,8 +557,17 @@ class ModeSelection:
 
 
     def mode_update(self) -> None:
+        print('\nUpdating data. . .')
+        start = perf_counter()
+        update_data()
+        end = perf_counter()
+        print(f'\nUpdated in: {end - start:0.4f} seconds')
         
-        start_all = perf_counter()
+        return None
+
+    def mode_grab(self) -> None:
+        
+        cl_start = perf_counter()
         
         page_counter = 1
         class_list = [] 
@@ -551,6 +575,7 @@ class ModeSelection:
         print('Searching all classes. . .')
         
         while True:
+            group = []
             URL = 'https://www.bu.edu/academics/grs/courses/'     
             page = requests.get(URL + f'{page_counter}')
             content = BeautifulSoup(page.content, 'html.parser')
@@ -560,36 +585,55 @@ class ModeSelection:
             if len(str(results.prettify())) == 31:
                 break
             
-            for i in results:
-                a = i.next_sibling
+            for idx, content in enumerate(results):
+                a = content.next_sibling
                 if a is None or not len(a.text.strip()):
                     continue
                 else:
                     class_code = a.text.split(':')[0].strip().replace(' ', '').lower()
-                    class_list.append(class_code)
+                    group.append(class_code)
                     
-            print(f'Group {page_counter} done')
+            print(f'Group {page_counter} done ({group[0]} to {group[-1]})')
+            class_list.append(group)
             page_counter += 1
         
         cl_stop = perf_counter()
-        print(f'\nAll classes found in {cl_stop - start_all:0.4f} seconds\n')
+        print(f'\nAll groups found in {cl_stop - cl_start:0.4f} seconds\n')
+                  
+        group_select = input('Enter group number or range to update (e.g. 1 or 1-20): ')
+        
+        search_start = perf_counter()
+        
+        if '-' in group_select:
+            group_select = group_select.split('-')
+            group_select = range(int(group_select[0]), int(group_select[1]) + 1)
+        else:
+            group_select = range(int(group_select), int(group_select) + 1)
+        
                     
         new_data = {} 
-        cl_len = len(class_list)
-              
-        for idx, course in enumerate(class_list):
-            temp = info_finder(course, 'future', True)
-            if not temp:
-                print(f'No info found for {course}')
+        num_search = sum([len(v) for i, v in enumerate(class_list) if i in group_select])
+        searched = 0
+         
+        for idx, groups in enumerate(class_list):
+            if idx not in group_select:
                 continue
             
-            new_data[course] = temp
-            print(f'Updated: {course} ({idx + 1}/{cl_len})')
+            for course in groups:
+                temp = info_finder(course, 'future', True)
+                if not temp:
+                    print(f'No info found for {course}')
+                    continue
+                
+                new_data[course] = temp
+                
+                searched += 1
+                print(f'Updated: {course} ({searched}/{num_search})')
             
-        update_data(new_data)
+        merge_data(new_data)
             
-        stop_all = perf_counter()
-        print(f"\nDone in: {stop_all - start_all:0.4f} seconds")
+        search_stop = perf_counter()
+        print(f"\nDone in: {search_stop - search_start:0.4f} seconds")
             
         return None
 

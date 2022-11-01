@@ -1,4 +1,31 @@
 {
+    "cdsds490": {
+        "prereq": null,
+        "coreq": null,
+        "description": "Directed study in Computing & Data Sciences provides students the opportunity to complete directed research in a selected topic not covered in a regularly scheduled course under the supervision of a faculty member. Student and supervising faculty member arrange and document expectations and requirements. Examples include in-depth study of a special topic or independent research project.",
+        "credit": null,
+        "hub credit": null
+    },
+    "cdsds340": {
+        "prereq": "A second course in programming (CDSDS210 or equivalent) should be taken prior to this class, and algorithms (CDSDS320 or equivalent) shouldbe taken simultaneously with or prior to this class.",
+        "coreq": "CDSDS320 or equivalent can be taken as a co-requisite for this course.",
+        "description": "This course instructs students in key algorithms for classic artificial intelligence (AI) and modern machine learning (ML). Along the way, we seek to explore what kinds of problems these techniques are good and bad at, and build intuition for what makes a good search or machine learning problem. The primary assessment tools will be programming problem sets in Python, using Jupyter notebooks. Effective Fall 2022, this course fulfills a single unit in each of the following BU Hub areas: Ethical Reasoning, Quantitative Reasoning II, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Ethical Reasoning",
+            "Critical Thinking"
+        ]
+    },
+    "caswr120": {
+        "prereq": "CAS WR 112 (if required by placement test).",
+        "coreq": null,
+        "description": "Topic-based seminar in critical reading and writing. Engagement with a variety of sources and practice in writing in a range of genres with particular attention to argumentation, prose style, and revision, informed by reflection and feedback, including individual conferences. Effective Fall 2018, this course fulfills a single unit in the following BU Hub area: First-Year Writing Seminar.",
+        "credit": "4",
+        "hub credit": [
+            "First-Year Writing Seminar"
+        ]
+    },
     "hubxc475": {
         "prereq": null,
         "coreq": null,

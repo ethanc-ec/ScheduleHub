@@ -6,7 +6,6 @@ from time import perf_counter
 from pathlib import Path
 from bs4 import BeautifulSoup
 from tqdm import tqdm
-from multiprocessing import Pool
 from concurrent.futures import ThreadPoolExecutor
 
 """
@@ -79,6 +78,7 @@ def info_finder(input_class: str, yearsem: str, skip:str = False) -> dict:
     data_writing = {
         input_class : cleaned
     }
+    
     if not skip:
         merge_data(data_writing)
     
@@ -99,9 +99,9 @@ def hub_finder(input_class: str, yearsem: str = 'future') -> list:
     if hub_list:
         if 'pathway' in hub_list[-1].lower():
             hub_list[-1] = hub_list[-1].split('BU')[0]
-        
-    info_finder(input_class, yearsem)
-           
+    
+    # _ = info_finder(input_class, yearsem)
+               
     return hub_list
     
 
@@ -142,7 +142,7 @@ def hub_collector(filename) -> dict:
         class_txt = class_txt.read().splitlines()
         
     hub_dict = {
-        "Philosophical Inquiry and Life’s Meanings" : [1, 0],
+        "Philosophical Inquiry and Life's Meanings" : [1, 0],
         "Aesthetic Exploration" : [1, 0],
         "Historical Consciousness" : [1, 0],
 
@@ -180,12 +180,10 @@ def hub_collector(filename) -> dict:
         if not val:
             continue
         for credit in val:
-            try:
-                hub_dict[credit][1] += 1
-                
-            except:
-                if credit == 'Scientific Inquiry II' or credit == 'Social Inquiry II':
+            if credit == 'Scientific Inquiry II' or credit == 'Social Inquiry II':
                     hub_dict['Scientific Inquiry II/Social Inquiry II'][1] += 1
+            else:
+                hub_dict[credit][1] += 1
 
     return hub_dict
 
@@ -364,11 +362,6 @@ def update_data() -> None:
     
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         json_file = json.load(data_file)
-        
-    # for i in classes:
-    #     json_file[i] = info_finder(i, 'future', True)     
-        
-    #     print(f'{i} updated')
     
     executor = ThreadPoolExecutor()
     info_list = list(tqdm(executor.map(ud_assistant, classes), total=len(classes), desc='Update Progress', ncols=100))
@@ -590,68 +583,47 @@ class ModeSelection:
 
     def mode_grab(self) -> None:
         
-        cl_start = perf_counter()
-        
-        page_counter = 1
-        class_list = [] 
+        cl_start = perf_counter() 
 
-        print('Searching all classes. . .')
+        print('\nSearching all classes. . .')
         
-        while True:
-            group = []
-            URL = 'https://www.bu.edu/academics/grs/courses/'     
-            page = requests.get(URL + f'{page_counter}')
-            content = BeautifulSoup(page.content, 'html.parser')
+        URLs = ['https://www.bu.edu/academics/grs/courses/' + str(i) for i in range(100)]
 
-            results = content.find('ul', class_='course-feed')
-            
-            if len(str(results.prettify())) == 31:
-                break
-            
-            for idx, content in enumerate(results):
-                a = content.next_sibling
-                if a is None or not len(a.text.strip()):
-                    continue
-                else:
-                    class_code = a.text.split(':')[0].strip().replace(' ', '').lower()
-                    group.append(class_code)
-                    
-            print(f'Group {page_counter} done ({group[0]} to {group[-1]})')
-            class_list.append(group)
-            page_counter += 1
+        executor = ThreadPoolExecutor()
+        class_list = list(tqdm(executor.map(self.mgrab_assistant_group, URLs), total=len(URLs), desc='Group Search Progress', ncols=100))
+        
+        if False in class_list:
+            class_list = class_list[:class_list.index(False)]
         
         cl_stop = perf_counter()
         print(f'\nAll groups found in {cl_stop - cl_start:0.4f} seconds\n')
-                  
-        group_select = input('Enter group number or range to update (e.g. 1 or 1-20): ')
-        
-        search_start = perf_counter()
-        
+              
+        group_select = input('Enter group number, range or \'all\' to update (e.g. 1 or 1-20): ')
+                
         if '-' in group_select:
             group_select = group_select.split('-')
-            group_select = range(int(group_select[0]), int(group_select[1]) + 1)
+            group_select = range(int(group_select[0])-1, int(group_select[1]))
+        elif group_select == 'all':
+            group_select = range(len(class_list))
         else:
-            group_select = range(int(group_select), int(group_select) + 1)
+            group_select = range(int(group_select)-1, int(group_select))
         
-                    
-        new_data = {} 
-        num_search = sum([len(v) for i, v in enumerate(class_list) if i in group_select])
-        searched = 0
+        search_list = []
+        for i in group_select:
+            search_list += class_list[i]
+        
+        search_start = perf_counter()
          
-        for idx, groups in enumerate(class_list):
-            if idx not in group_select:
-                continue
-            
-            for course in groups:
-                temp = info_finder(course, 'future', True)
-                if not temp:
-                    print(f'No info found for {course}')
-                    continue
-                
-                new_data[course] = temp
-                
-                searched += 1
-                print(f'Updated: {course} ({searched}/{num_search})')
+        new_data = {}
+        
+        executor = ThreadPoolExecutor()
+        data_list = list(tqdm(executor.map(self.mgrab_assistant_grab, search_list), total=len(search_list), desc='Class Search Progress', ncols=100))
+        
+        while False in data_list:
+            data_list.remove(False)
+        
+        for i in data_list:
+            new_data[i[0]] = i[1]
             
         merge_data(new_data)
             
@@ -661,7 +633,30 @@ class ModeSelection:
         return None
 
 
+    def mgrab_assistant_group(self, URL):
+        group = []
+        page = requests.get(URL)
+        content = BeautifulSoup(page.content, 'html.parser')
 
+        results = content.find('ul', class_='course-feed')
+        
+        if len(str(results.prettify())) == 31:
+            return False
+        
+        for _, content in enumerate(results):
+            a = content.next_sibling
+            if a is None or not len(a.text.strip()):
+                continue
+            else:
+                class_code = a.text.split(':')[0].strip().replace(' ', '').lower()
+                group.append(class_code)
+        return group
+    
+    def mgrab_assistant_grab(self, course):
+        temp = info_finder(course, 'future', True)
+        if not temp:
+            return False
+        return [course, temp]
 
 
 

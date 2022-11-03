@@ -8634,5 +8634,69 @@
         "description": "Explores the variety and complexity of theories and methods in the interdisciplinary fields of women's, gender, and sexuality studies. Provides a forum for assessing research strategies used by gender and sexuality scholars. Required for the WGS Program Graduate Certificate.",
         "credit": "4",
         "hub credit": null
+    },
+    "cascs411": {
+        "prereq": "CAS CS 112.",
+        "coreq": null,
+        "description": "Introduction to the construction of reliable software. Topics may include software tools, software testing methodologies, retrofitting, regression testing, structured design and structured programming, software characteristics and quality, complexity, entropy, deadlock, fault tolerance, formal proofs of program correctness, chief program teams, and structured walk-throughs. Effective Fall 2019, this course fulfills a single unit in each of the following BU Hub area: Teamwork/Collaboration.",
+        "credit": "4",
+        "hub credit": [
+            "Teamwork/Collaboration"
+        ]
+    },
+    "cascs412": {
+        "prereq": "CAS CS 111 ; CAS CS 112 ; CAS CS 411; or consent of instructor.",
+        "coreq": null,
+        "description": "Introduction to design and development of full-stack web applications. Topics include asynchronous programming; non-relational data stores; use of APIs; serverless (cloudbased) applications; decoupled client/server architectures; performance; testing; packaging; and deployment. Examines current and proposed technology stacks.",
+        "credit": "4",
+        "hub credit": null
+    },
+    "cascs330": {
+        "prereq": "CASCS112, CASCS131, and CASCS132; or CASCS235 or CASCS237",
+        "coreq": null,
+        "description": "Examines the basic principles of algorithm design and analysis; graph algorithms; greedy algorithms; dynamic programming; network flows; polynomial- time reductions; NP-hard and NP-complete problems; approximation algorithms; randomized algorithms. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Critical Thinking.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Critical Thinking"
+        ]
+    },
+    "cdsds310": {
+        "prereq": "CDSDS110 AND CDSDS210",
+        "coreq": null,
+        "description": "Course focused on developing students' capacity to design and implement data flows and the computational workflows meant to inform online/offline decision-making within large systems. Students explore the data science lifecycle, including question formulation, data collection and cleaning (data wrangling), exploratory data analysis and visualization, statistical inference and prediction, and decision-making. Relational (SQL) and MapReduce (noSQL) paradigms used to assemble analysis, optimization, and decision-making algorithms to track and scale data.",
+        "credit": "4",
+        "hub credit": null
+    },
+    "cdsds210": {
+        "prereq": "CDSDS110 OR equivalent",
+        "coreq": null,
+        "description": "Second course in the CDS DS-110-210 sequence. The first half of DS 210 continues the Python programming experience begun in DS-110, with enhanced focus on machine learning applications. The second half of the course introduces students to compiled programming languages, such as Rust, Go and Java, suitable for building large projects. Basic data structures (stacks, queues, priority queues, binary search trees), techniques for representing graphs, and basic graph algorithms will be explored. Concepts are developed and reinforced through consideration of data-driven inquiries in real-world settings. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Quantitative Reasoning II, Digital/Multimedia Expression, Creativity/Innovation.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning II",
+            "Digital/Multimedia Expression",
+            "Creativity/Innovation"
+        ]
+    },
+    "cdsds120": {
+        "prereq": "Basic knowledge of a programming language such as Python is expected",
+        "coreq": "CDSDS110 OR equivalent.",
+        "description": "The first in a 3-course sequence (with CDS DS 121 and CDS DS 122) that introduces students to theoretical foundations of Data Science. Introduction to key concepts from Calculus (differentiation and integration), Probability (discrete and continuous random variables) and Linear Algebra (vector spaces, matrices, and linear systems). The course links mathematics and computational thinking through problem sets requiring students to answer mathematically- posed questions using computation.",
+        "credit": "4",
+        "hub credit": [
+            "Quantitative Reasoning I"
+        ]
+    },
+    "cdsds100": {
+        "prereq": null,
+        "coreq": null,
+        "description": "This course introduces students to three perspectives that are fundamental to their ability to reason with data: critical thinking, inferential thinking, and computational thinking. Through data modeling and visualization, students will construct and communicate arguments that are rooted in data. The course expects only basic computer knowledge and teaches concepts and skills in computer programming (Python), linear regression, and statistical inference. The course delves into dilemmas surrounding data analysis, such as balancing individual privacy and social utility, and prepares students for the data driven world all around us. Students with interests from politics to sports, finance to journalism, entrepreneurship to smart cities, etc., can use the knowledge of data science they gain in this class to enhance those interests. Not to mention a grounding for students who want to pursue the field of data science itself. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Social Inquiry 1, Digital/Multimedia Expression, Research and Information Literacy.",
+        "credit": "4",
+        "hub credit": [
+            "Social Inquiry I",
+            "Digital/Multimedia Expression",
+            "Research and Information Literacy"
+        ]
     }
 }

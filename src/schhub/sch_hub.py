@@ -5,6 +5,9 @@ import json
 from time import perf_counter
 from pathlib import Path
 from bs4 import BeautifulSoup
+from tqdm import tqdm
+from multiprocessing import Pool
+from concurrent.futures import ThreadPoolExecutor
 
 """
 Functions for scraping the information from the website
@@ -27,9 +30,7 @@ def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> Be
     elif finder == 'section':
         code_joined = ''.join(code).lower()
         URL = f"https://www.bu.edu/phpbin/course-search/section/?t={code_joined}&semester={time}&return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D10%26adv%3D1%26nolog%3D%26search_adv_all%3D{code[0]}%2B{code[1]}%2B{code[2]}%26yearsem_adv%3D{time}%26credits%3D%2A%26pathway%3D%26hub_match%3Dall"
-      
-    # print(URL)
-             
+                   
     page = requests.get(URL)
     
     content = BeautifulSoup(page.content, 'html.parser')
@@ -52,6 +53,10 @@ def info_finder(input_class: str, yearsem: str, skip:str = False) -> dict:
     for idx, val in enumerate(hub_list):
         hub_list[idx] = re.sub('<[^>]+>', '', val).strip()
     
+    if hub_list:
+        if 'pathway' in hub_list[-1].lower():
+            hub_list[-1] = hub_list[-1].split('BU')[0]
+        
     # For finding the prereq, coreq, description and credit
     full = results.find('div', class_="coursearch-result-content-description")
 
@@ -90,7 +95,11 @@ def hub_finder(input_class: str, yearsem: str = 'future') -> list:
     
     for idx, val in enumerate(hub_list):
         hub_list[idx] = re.sub('<[^>]+>', '', val).strip()
-            
+    
+    if hub_list:
+        if 'pathway' in hub_list[-1].lower():
+            hub_list[-1] = hub_list[-1].split('BU')[0]
+        
     info_finder(input_class, yearsem)
            
     return hub_list
@@ -128,71 +137,74 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list:
     return single_entries
 
 
-def hub_collector(filename, yearsem: str = 'future') -> dict:  
+def hub_collector(filename) -> dict:  
     with open(Path(__file__).parent / filename) as class_txt:
         class_txt = class_txt.read().splitlines()
         
-        hub_dict = {
-            "Philosophical Inquiry and Life’s Meanings" : [1, 0],
-            "Aesthetic Exploration" : [1, 0],
-            "Historical Consciousness" : [1, 0],
+    hub_dict = {
+        "Philosophical Inquiry and Life’s Meanings" : [1, 0],
+        "Aesthetic Exploration" : [1, 0],
+        "Historical Consciousness" : [1, 0],
 
-            "Scientific Inquiry I" : [1, 0],
-            "Social Inquiry I" : [1, 0],
-            "Scientific Inquiry II/Social Inquiry II" : [1, 0],
-            
-            "Quantitative Reasoning I" : [1, 0],
-            "Quantitative Reasoning II" : [1, 0],
-
-            "The Individual in Community" : [1, 0],
-            "Global Citizenship and Intercultural Literacy" : [2, 0],
-            "Ethical Reasoning" : [1, 0],
-
-            "First-Year Writing Seminar" : [1, 0],
-            "Writing, Research, and Inquiry" : [1, 0],
-            "Writing-Intensive Course" : [2, 0],
-            "Oral and/or Signed Communication" : [1, 0],
-            "Digital/Multimedia Expression" : [1, 0],
-
-            "Critical Thinking" : [2, 0],
-            "Research and Information Literacy" : [2, 0],
-            "Teamwork/Collaboration" : [2, 0],
-            "Creativity/Innovation" : [2, 0]
-        }
+        "Scientific Inquiry I" : [1, 0],
+        "Social Inquiry I" : [1, 0],
+        "Scientific Inquiry II/Social Inquiry II" : [1, 0],
         
-        print('\nProgress: ')
+        "Quantitative Reasoning I" : [1, 0],
+        "Quantitative Reasoning II" : [1, 0],
 
-        for i in class_txt:
-            pulled = False
-            if in_data(i):
-                class_data = pull_data(i)
-                info = class_data['hub credit']
-                pulled = True
-                        
-            elif not i or i[0] == '#':
-                continue
-             
-            else:
-                info = hub_finder(i, yearsem)
+        "The Individual in Community" : [1, 0],
+        "Global Citizenship and Intercultural Literacy" : [2, 0],
+        "Ethical Reasoning" : [1, 0],
+
+        "First-Year Writing Seminar" : [1, 0],
+        "Writing, Research, and Inquiry" : [1, 0],
+        "Writing-Intensive Course" : [2, 0],
+        "Oral and/or Signed Communication" : [1, 0],
+        "Digital/Multimedia Expression" : [1, 0],
+
+        "Critical Thinking" : [2, 0],
+        "Research and Information Literacy" : [2, 0],
+        "Teamwork/Collaboration" : [2, 0],
+        "Creativity/Innovation" : [2, 0]
+    }
+    
+    class_txt = [i for i in class_txt if '#' not in i]
+
+    print('\nCollecting hub credits...')
+    
+    executor = ThreadPoolExecutor()
+    info = list(tqdm(executor.map(hc_assistant, class_txt), total=len(class_txt), desc='Hub Info Progress', ncols=100))
+            
+    for val in info:
+        if not val:
+            continue
+        for credit in val:
+            try:
+                hub_dict[credit][1] += 1
                 
-            if info is None:
-                continue
-                        
-            for j in info:
-                try:
-                    hub_dict[j][1] += 1
-                    
-                except:
-                    if j == 'Scientific Inquiry II' or j == 'Social Inquiry II':
-                        hub_dict['Scientific Inquiry II/Social Inquiry II'][1] += 1
-                        
-                        
-            if not pulled:
-                print(f'{i} done [scraped from website]')
-            else:
-                print(f'{i} done [pulled from data]')
+            except:
+                if credit == 'Scientific Inquiry II' or credit == 'Social Inquiry II':
+                    hub_dict['Scientific Inquiry II/Social Inquiry II'][1] += 1
 
     return hub_dict
+
+
+def hc_assistant(class_code) -> dict:
+    if in_data(class_code):
+        class_data = pull_data(class_code)
+        info = class_data['hub credit']
+                
+    elif not class_code or class_code == '#':
+        return False
+        
+    else:
+        info = hub_finder(class_code, 'future')
+        
+    if info is None:
+        return False
+          
+    return info
 
 
 def print_info(info_dict):
@@ -349,18 +361,28 @@ def dump_data(data: dict) -> None:
 
 def update_data() -> None:
     classes = pull_classes()
-    new_data = {}
     
-    for i in classes:
-        new_data[i] = info_finder(i, 'future', True)
-        print(f'{i} updated')
+    with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+        json_file = json.load(data_file)
         
-    dump_data(new_data)
+    # for i in classes:
+    #     json_file[i] = info_finder(i, 'future', True)     
+        
+    #     print(f'{i} updated')
+    
+    executor = ThreadPoolExecutor()
+    info_list = list(tqdm(executor.map(ud_assistant, classes), total=len(classes), desc='Update Progress', ncols=100))
+    
+    for idx, val in enumerate(info_list):
+        json_file[val[0]] = val[1]
+    
+    with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
+        json.dump(json_file, data_file, indent = 4)
     
     return None
 
-
-
+def ud_assistant(class_code):
+    return [class_code, info_finder(class_code, 'future', True)]
 
 
 
@@ -564,6 +586,7 @@ class ModeSelection:
         print(f'\nUpdated in: {end - start:0.4f} seconds')
         
         return None
+
 
     def mode_grab(self) -> None:
         

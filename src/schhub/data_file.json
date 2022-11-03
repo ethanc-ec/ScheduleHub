@@ -35,7 +35,7 @@
         "hub credit": [
             "Global Citizenship and Intercultural Literacy",
             "Critical Thinking",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "casaa514": {
@@ -45,7 +45,7 @@
         "credit": "4",
         "hub credit": [
             "Historical Consciousness",
-            "Global Citizenship and Intercultural LiteracyBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Global Citizenship and Intercultural Literacy"
         ]
     },
     "casaa517": {
@@ -56,7 +56,7 @@
         "hub credit": [
             "The Individual in Community",
             "Teamwork/Collaboration",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "casaa519": {
@@ -67,7 +67,7 @@
         "hub credit": [
             "The Individual in Community",
             "Research and Information Literacy",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "casaa523": {
@@ -78,7 +78,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Creativity/Innovation",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "casaa538": {
@@ -138,7 +138,7 @@
         "hub credit": [
             "Aesthetic Exploration",
             "Digital/Multimedia Expression",
-            "Creativity/InnovationBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Creativity/Innovation"
         ]
     },
     "casah520": {
@@ -278,7 +278,7 @@
         "credit": "4",
         "hub credit": [
             "Aesthetic Exploration",
-            "Historical ConsciousnessBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Historical Consciousness"
         ]
     },
     "casam546": {
@@ -472,7 +472,7 @@
         "credit": "4",
         "hub credit": [
             "Global Citizenship and Intercultural Literacy",
-            "Social Inquiry IIBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Social Inquiry II"
         ]
     },
     "casan565": {
@@ -566,7 +566,7 @@
         "hub credit": [
             "Scientific Inquiry II",
             "Quantitative Reasoning II",
-            "Teamwork/CollaborationBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Teamwork/Collaboration"
         ]
     },
     "casan596": {
@@ -627,7 +627,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Social Inquiry II",
-            "Research and Information LiteracyBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Research and Information Literacy"
         ]
     },
     "casar507": {
@@ -652,7 +652,7 @@
         "hub credit": [
             "Quantitative Reasoning II",
             "Social Inquiry II",
-            "Critical ThinkingBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Critical Thinking"
         ]
     },
     "casar518": {
@@ -662,7 +662,7 @@
         "credit": "4",
         "hub credit": [
             "Quantitative Reasoning I",
-            "Social Inquiry IIBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Social Inquiry II"
         ]
     },
     "casar520": {
@@ -679,7 +679,7 @@
         "credit": "4",
         "hub credit": [
             "Social Inquiry II",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "casar556": {
@@ -733,7 +733,7 @@
         "hub credit": [
             "Scientific Inquiry II",
             "Oral and/or Signed Communication",
-            "Research and Information LiteracyBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Research and Information Literacy"
         ]
     },
     "casbi504": {
@@ -806,7 +806,7 @@
         "description": "Marine Urban Ecology is an emerging, interdisciplinary field that aims to understand how human and ecological processes can coexist in human-dominated systems. Topics, ecosystems, and organisms associated with urbanization in the Greater Boston area. Also offered as CAS GE 523. Effective Fall 2019, this course fulfills a single unit in the following BU Hub area: Teamwork/Collaboration.",
         "credit": "4",
         "hub credit": [
-            "Teamwork/CollaborationBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Teamwork/Collaboration"
         ]
     },
     "casbi525": {
@@ -872,7 +872,7 @@
         "credit": "4",
         "hub credit": [
             "Scientific Inquiry II",
-            "Creativity/InnovationBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Creativity/Innovation"
         ]
     },
     "casbi541": {
@@ -882,7 +882,7 @@
         "credit": "4",
         "hub credit": [
             "Oral and/or Signed Communication",
-            "Research and Information LiteracyBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Research and Information Literacy"
         ]
     },
     "casbi542": {
@@ -908,9 +908,7 @@
         "coreq": null,
         "description": "Marine macrofauna: whales, seals, seabirds, fishes, turtles, jellies, and people in Stellwagen Bank National Marine Sanctuary. Evolution, food webs, and distributional ecology; physical and human influences on foraging and movement behavior. Student research builds ecosystem-based science for Sanctuary management. Effective Fall 2019, this course is part of a Hub sequence.",
         "credit": "4",
-        "hub credit": [
-            "Part of a Hub sequenceBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
-        ]
+        "hub credit": null
     },
     "casbi547": {
         "prereq": "CAS BI 107 and CAS BI 260; and admission to the Marine Semester.",
@@ -975,9 +973,7 @@
         "coreq": null,
         "description": "Examines coastal energy flow and nutrient cycling in the context of human impacts. Links between local and global scales are emphasized. Course is part of the Marine Semester and involves field and laboratory work. Also offered as CAS ES 558. Effective Fall 2019, this course is part of a Hub sequence.",
         "credit": "4",
-        "hub credit": [
-            "Part of a Hub sequenceBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
-        ]
+        "hub credit": null
     },
     "casbi560": {
         "prereq": "CAS BI 552;  or consent of the instructor.",
@@ -1057,7 +1053,7 @@
         "credit": "4",
         "hub credit": [
             "Oral and/or Signed Communication",
-            "Research and Information LiteracyBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Research and Information Literacy"
         ]
     },
     "casbi579": {
@@ -1151,7 +1147,7 @@
         "credit": "4",
         "hub credit": [
             "Scientific Inquiry II",
-            "Creativity/InnovationBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Creativity/Innovation"
         ]
     },
     "casbi594": {
@@ -1552,7 +1548,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Social Inquiry I",
-            "Research and Information LiteracyBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Research and Information Literacy"
         ]
     },
     "cashi113": {
@@ -1563,7 +1559,7 @@
         "hub credit": [
             "Historical Consciousness",
             "The Individual in Community",
-            "Critical ThinkingBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Critical Thinking"
         ]
     },
     "cashi151": {
@@ -1615,7 +1611,7 @@
         "hub credit": [
             "Historical Consciousness",
             "The Individual in Community",
-            "Teamwork/CollaborationBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Teamwork/Collaboration"
         ]
     },
     "cashi191": {
@@ -1669,15 +1665,19 @@
         "hub credit": [
             "Historical Consciousness",
             "Research and Information Literacy",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "cashi207": {
         "prereq": null,
         "coreq": null,
-        "description": "This course employs medieval and early modern authors, as well as contemporary scholars, as vehicles for understanding the dynamics of power, gender, violence and politics in George Martin's novel, Game of Thrones.",
+        "description": "This course employs medieval and early modern authors, as well as contemporary scholars, as vehicles for understanding the dynamics of power, gender, violence and politics in George Martin's novel, Game of Thrones. Effective Fall 2023 this course fulfills a single unit in each of the following BU Hub areas: Ethical Reasoning, Historical Consciousness, Creativity/Innovation.",
         "credit": "4",
-        "hub credit": null
+        "hub credit": [
+            "Historical Consciousness",
+            "Ethical Reasoning",
+            "Creativity/Innovation"
+        ]
     },
     "cashi208": {
         "prereq": null,
@@ -1755,7 +1755,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Global Citizenship and Intercultural Literacy",
-            "Teamwork/CollaborationBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Teamwork/Collaboration"
         ]
     },
     "cashi229": {
@@ -1933,7 +1933,7 @@
         "credit": "4",
         "hub credit": [
             "Social Inquiry I",
-            "The Individual in CommunityBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "The Individual in Community"
         ]
     },
     "cashi292": {
@@ -1951,7 +1951,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Digital/Multimedia Expression",
-            "Teamwork/CollaborationBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Teamwork/Collaboration"
         ]
     },
     "cashi299": {
@@ -1962,7 +1962,7 @@
         "hub credit": [
             "Historical Consciousness",
             "The Individual in Community",
-            "Teamwork/CollaborationBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Teamwork/Collaboration"
         ]
     },
     "cashi300": {
@@ -1973,7 +1973,7 @@
         "hub credit": [
             "Aesthetic Exploration",
             "Historical Consciousness",
-            "Critical ThinkingBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Critical Thinking"
         ]
     },
     "cashi301": {
@@ -2061,7 +2061,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Social Inquiry I",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Writing-Intensive Course"
         ]
     },
     "cashi317": {
@@ -2162,7 +2162,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Social Inquiry II",
-            "Research and Information LiteracyBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Research and Information Literacy"
         ]
     },
     "cashi341": {
@@ -2184,7 +2184,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Digital/Multimedia Expression",
-            "Creativity/InnovationBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Creativity/Innovation"
         ]
     },
     "cashi347": {
@@ -2211,7 +2211,7 @@
         "credit": "4",
         "hub credit": [
             "Historical Consciousness",
-            "Global Citizenship and Intercultural LiteracyBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Global Citizenship and Intercultural Literacy"
         ]
     },
     "cashi350": {
@@ -2229,7 +2229,7 @@
         "hub credit": [
             "Scientific Inquiry II",
             "Global Citizenship and Intercultural Literacy",
-            "Research and Information LiteracyBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Research and Information Literacy"
         ]
     },
     "cashi352": {
@@ -2285,7 +2285,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Global Citizenship and Intercultural Literacy",
-            "Creativity/InnovationBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Creativity/Innovation"
         ]
     },
     "cashi369": {
@@ -2385,7 +2385,7 @@
         "hub credit": [
             "The Individual in Community",
             "Critical Thinking",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "cashi393": {
@@ -2395,7 +2395,7 @@
         "credit": "4",
         "hub credit": [
             "Historical Consciousness",
-            "Global Citizenship and Intercultural LiteracyBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Global Citizenship and Intercultural Literacy"
         ]
     },
     "cashi397": {
@@ -2508,7 +2508,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Global Citizenship and Intercultural Literacy",
-            "Critical ThinkingBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Critical Thinking"
         ]
     },
     "cashi460": {
@@ -2519,7 +2519,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Ethical Reasoning",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Environment &amp; Society"
+            "Writing-Intensive Course"
         ]
     },
     "cashi465": {
@@ -2536,7 +2536,7 @@
         "credit": "4",
         "hub credit": [
             "Research and Information Literacy",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "cashi475": {
@@ -2610,7 +2610,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Creativity/Innovation",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "cashi504": {
@@ -2630,7 +2630,7 @@
         "credit": "4",
         "hub credit": [
             "Aesthetic Exploration",
-            "Historical ConsciousnessBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Historical Consciousness"
         ]
     },
     "cashi506": {
@@ -2687,7 +2687,7 @@
         "credit": "4",
         "hub credit": [
             "Social Inquiry II",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "cashi526": {
@@ -2698,7 +2698,7 @@
         "hub credit": [
             "Ethical Reasoning",
             "Social Inquiry II",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "cashi533": {
@@ -2778,7 +2778,7 @@
         "credit": "4",
         "hub credit": [
             "Research and Information Literacy",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "cashi578": {
@@ -2809,7 +2809,7 @@
         "credit": "4",
         "hub credit": [
             "Historical Consciousness",
-            "Global Citizenship and Intercultural LiteracyBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Global Citizenship and Intercultural Literacy"
         ]
     },
     "cashi587": {
@@ -2919,7 +2919,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Oral and/or Signed Communication",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "caspo516": {
@@ -2937,7 +2937,7 @@
         "hub credit": [
             "The Individual in Community",
             "Research and Information Literacy",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "caspo520": {
@@ -3116,7 +3116,7 @@
         "hub credit": [
             "Historical Consciousness",
             "Critical Thinking",
-            "Writing-Intensive CourseBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Writing-Intensive Course"
         ]
     },
     "caspo569": {
@@ -5946,7 +5946,7 @@
     "grslf687": {
         "prereq": null,
         "coreq": null,
-        "description": "Through interdisciplinary, in-depth study, explores the history, legacy, and future of a single 'lieu de m?moire'--an iconic 'site of memory' that serves as a cultural touchstone. Sources include manuscripts, architecture, literary texts, music, film, photography, and others. Effective Fall 2020, this course fulfills a single unit in each of the following BU Hub areas: Ethical Reasoning, Aesthetic Exploration Teamwork/Collaboration.",
+        "description": "Through interdisciplinary, in-depth study, explores the history, legacy, and future of a single 'lieu de memoire'--an iconic 'site of memory' that serves as a cultural touchstone. Sources include manuscripts, architecture, literary texts, music, film, photography, and others. Taught in English.",
         "credit": "4",
         "hub credit": [
             "Aesthetic Exploration",
@@ -5957,7 +5957,7 @@
     "grslf850": {
         "prereq": null,
         "coreq": null,
-        "description": "Satisfies departmental theory requirement. Topic for Fall 2022: Literary Theory from Structuralism to Post-colonialism. Survey of important theoretical works and trends from structuralism through post-colonial theory. Theoretical essays are read in tandem with literary works.",
+        "description": "May be repeated for credit if topic is different. Spring 2023 topics: Section A1: Reading Baroque Poetry. The lyrical poetry of Quevedo, Lope de Vega, and G?ngora, with attention to its modes of transmission; the way it has been edited, annotated and translated; and its modern reception in Spain and the U.S. from the 1920s to the present. Section B1: Poetry and Social Change in Twentieth-Century Latin America. Exploration of Latin America's strong tradition of the use of poetry to effect social change. Examples from a broad range of authors, including Pablo Neruda, Nicolas Guillen, Ernesto Cardenal, Roque Dalton, Mario Benedetti and Gioconda Belli.",
         "credit": "4",
         "hub credit": null
     },
@@ -6083,7 +6083,7 @@
     "grsls850": {
         "prereq": null,
         "coreq": null,
-        "description": "May be repeated for credit if topic is different. Three topics are offered in Fall 2022. Section A1: Generos intersticiales. Estudio de textos de poesia vuelta baile y cancion (tango), teoria (Octavio Paz, Julio Cortazar), mundos alternativos (Olga Orozco, Alejandra Pizarnik) y otros. Section B1: TBA. Section C1: Literary Theory from Structuralism to Post-colonialism. Survey of important theoretical works and trends from structuralism through post-colonial theory. Theoretical essays are read in tandem with literary works.",
+        "description": "This course description is currently under construction.",
         "credit": "4",
         "hub credit": null
     },
@@ -8289,14 +8289,14 @@
         ]
     },
     "grsrn752": {
-        "prereq": null,
+        "prereq": "CAS WR 120 or equivalent and one course from among the following: Religion, Philosophy, Core Curriculum (CC 101 and/or CC 102).",
         "coreq": null,
-        "description": "What is happiness? How can we achieve a balanced, healthy, fulfilling life? Classical thinkers such as Aristotle, Plato, Chuang Tzu; Stoic, Epicurean, Confucian, Buddhist paths; comparison with contemporary studies on happiness and mindfulness. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings, Critical Thinking.",
+        "description": "What is happiness? How can we achieve a balanced, healthy, fulfilling life? Classical thinkers such as Aristotle, Plato, Chuang Tzu; Stoic, Epicurean, Confucian, Buddhist paths; comparison with contemporary studies on happiness and mindfulness. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings, Critical Thinking. Effective Spring 2023 this course fulfills a single unit in each of the following BU Hub areas: Writing-Intensive Course, Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings.",
         "credit": "4",
         "hub credit": [
             "Philosophical Inquiry and Life's Meanings",
             "Global Citizenship and Intercultural Literacy",
-            "Critical Thinking"
+            "Writing-Intensive Course"
         ]
     },
     "grsrn760": {
@@ -8583,7 +8583,7 @@
         "credit": "4",
         "hub credit": [
             "Social Inquiry II",
-            "Critical ThinkingBU Hub Pathway:\u00a0\u00a0Social &amp; Racial Justice"
+            "Critical Thinking"
         ]
     },
     "grsso947": {

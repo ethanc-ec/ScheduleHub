@@ -584,41 +584,51 @@ class ModeSelection:
 
     def mode_grab(self) -> None:
         
-        cl_start = perf_counter() 
+        cl_start = perf_counter()         
+        bu_branches = {
+            'cas': 'College of Arts and Sciences',
+            'khc': 'Kilachand Honors College',
+            'com': 'College of Communication',
+            'eng': 'College of Engineering',
+            'cfa': 'College of Fine Arts',
+            'cgs': 'College of General Studies',
+            'sar': 'College of Health & Rehabilitation Sciences: Sargent College',
+            'cds': 'Faculty of Computing & Data Sciences',
+            'qst': 'Questrom School of Business',
+        }
+        print('\nAvailable branches: ')
+        for i in bu_branches:
+            print(f'{i},', end=' ')
 
-        print('\nSearching all classes. . .')
-        
-        URLs = ['https://www.bu.edu/academics/grs/courses/' + str(i) for i in range(100)]
+        bselect = input('\nEnter college code, use a "," to separate multiple (e.g. cds): ')
+        if ',' in bselect:
+            bselect = bselect.split(',')
+            bselect = [i.strip() for i in bselect]
+        else:
+            bselect = [bselect]
+            
+        URLs = []
+        for branch in bselect:
+            for i in range(150):
+                URLs.append(f'https://www.bu.edu/academics/{branch}/courses/{i}')
 
         executor = ThreadPoolExecutor()
         class_list = list(tqdm(executor.map(self.mgrab_assistant_group, URLs), total=len(URLs), desc='Group Search Progress', ncols=100))
         
-        if False in class_list:
-            class_list = class_list[:class_list.index(False)]
+        while False in class_list:
+            class_list.remove(False)
+        
+        class_list = [item for sublist in class_list for item in sublist]
         
         cl_stop = perf_counter()
-        print(f'\nAll groups found in {cl_stop - cl_start:0.4f} seconds\n')
-              
-        group_select = input('Enter group number, range or \'all\' to update (e.g. 1 or 1-20): ')
-                
-        if '-' in group_select:
-            group_select = group_select.split('-')
-            group_select = range(int(group_select[0])-1, int(group_select[1]))
-        elif group_select == 'all':
-            group_select = range(len(class_list))
-        else:
-            group_select = range(int(group_select)-1, int(group_select))
-        
-        search_list = []
-        for i in group_select:
-            search_list += class_list[i]
+        print(f'\n{len(class_list)} groups found in {cl_stop - cl_start:0.4f} seconds\n')
         
         search_start = perf_counter()
          
         new_data = {}
         
         executor = ThreadPoolExecutor()
-        data_list = list(tqdm(executor.map(self.mgrab_assistant_grab, search_list), total=len(search_list), desc='Class Search Progress', ncols=100))
+        data_list = list(tqdm(executor.map(self.mgrab_assistant_grab, class_list), total=len(class_list), desc='Class Search Progress', ncols=100))
         
         while False in data_list:
             data_list.remove(False)
@@ -640,8 +650,9 @@ class ModeSelection:
         content = BeautifulSoup(page.content, 'html.parser')
 
         results = content.find('ul', class_='course-feed')
-        
-        if len(str(results.prettify())) == 31:
+        if results is None:
+            return False
+        elif len(str(results.prettify())) == 31:
             return False
         
         for _, content in enumerate(results):

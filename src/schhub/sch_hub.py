@@ -600,10 +600,12 @@ class ModeSelection:
         for i in bu_branches:
             print(f'{i},', end=' ')
 
-        bselect = input('\nEnter college code, use a "," to separate multiple (e.g. cds): ')
+        bselect = input('\nEnter college code, use a "," to separate multiple, or use "all" (e.g. cds): ')
         if ',' in bselect:
             bselect = bselect.split(',')
             bselect = [i.strip() for i in bselect]
+        elif 'all' in bselect:
+            bselect = [i for i in bu_branches]
         else:
             bselect = [bselect]
             

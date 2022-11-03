@@ -2,10 +2,11 @@ import re
 import requests
 import json
 
+from tqdm import tqdm
 from time import perf_counter
+
 from pathlib import Path
 from bs4 import BeautifulSoup
-from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 
 """
@@ -137,7 +138,7 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list:
     return single_entries
 
 
-def hub_collector(filename) -> dict:  
+def hub_collector(filename: str) -> dict:  
     with open(Path(__file__).parent / filename) as class_txt:
         class_txt = class_txt.read().splitlines()
         
@@ -188,7 +189,7 @@ def hub_collector(filename) -> dict:
     return hub_dict
 
 
-def hc_assistant(class_code) -> dict:
+def hc_assistant(class_code: str) -> dict:
     if in_data(class_code):
         class_data = pull_data(class_code)
         info = class_data['hub credit']
@@ -205,7 +206,7 @@ def hc_assistant(class_code) -> dict:
     return info
 
 
-def print_info(info_dict):
+def print_info(info_dict: dict) -> None:
     for key in info_dict:  
         if key != 'description':
             print(f'{key}(s): {info_dict[key]} \n')
@@ -215,7 +216,7 @@ def print_info(info_dict):
     return None
 
 
-def print_section(section_list):
+def print_section(section_list: list) -> None:
     print('All sections: \n[section, open seats, instructor, type, location, schedule, dates, notes]\n')
     
     for i in section_list:
@@ -299,7 +300,7 @@ def clean_input(text: str) -> list:
 JSON management functions
 """
 
-def in_data(class_) -> bool:
+def in_data(class_: str) -> bool:
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         try:
             data = json.load(data_file)
@@ -331,7 +332,7 @@ def merge_data(new_data: dict) -> None:
     return None
 
 
-def pull_data(class_) -> dict:
+def pull_data(class_: str) -> dict:
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         data = json.load(data_file)
         
@@ -366,7 +367,7 @@ def update_data() -> None:
     executor = ThreadPoolExecutor()
     info_list = list(tqdm(executor.map(ud_assistant, classes), total=len(classes), desc='Update Progress', ncols=100))
     
-    for idx, val in enumerate(info_list):
+    for _, val in enumerate(info_list):
         json_file[val[0]] = val[1]
     
     with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
@@ -374,7 +375,7 @@ def update_data() -> None:
     
     return None
 
-def ud_assistant(class_code):
+def ud_assistant(class_code: str) -> tuple:
     return [class_code, info_finder(class_code, 'future', True)]
 
 

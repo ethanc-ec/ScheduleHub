@@ -11,3 +11,4 @@ To Use:
 Future Features:
   - GUI
   - Full JSON file with *all* Boston University courses for offline use
+    - Eventual transistion to SQLite3 database

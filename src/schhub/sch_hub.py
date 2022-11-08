@@ -7,7 +7,8 @@ from time import perf_counter
 
 from pathlib import Path
 from bs4 import BeautifulSoup
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
+from multiprocessing import Pool
 
 """
 Functions for scraping the information from the website
@@ -363,8 +364,8 @@ def update_data() -> None:
     
     with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
         json_file = json.load(data_file)
-    
-    executor = ThreadPoolExecutor()
+
+    executor = ProcessPoolExecutor()
     info_list = list(tqdm(executor.map(ud_assistant, classes), total=len(classes), desc='Update Progress', ncols=100))
     
     for _, val in enumerate(info_list):
@@ -614,7 +615,7 @@ class ModeSelection:
             for i in range(150):
                 URLs.append(f'https://www.bu.edu/academics/{branch}/courses/{i}')
 
-        executor = ThreadPoolExecutor()
+        executor = ProcessPoolExecutor()
         class_list = list(tqdm(executor.map(self.mgrab_assistant_group, URLs), total=len(URLs), desc='Group Search Progress', ncols=100))
         
         while False in class_list:
@@ -628,9 +629,9 @@ class ModeSelection:
         search_start = perf_counter()
          
         new_data = {}
-        
-        executor = ThreadPoolExecutor()
-        data_list = list(tqdm(executor.map(self.mgrab_assistant_grab, class_list), total=len(class_list), desc='Class Search Progress', ncols=100))
+
+        p = Pool()
+        data_list = list(tqdm(p.imap_unordered(self.mgrab_assistant_grab, class_list), total=len(class_list), desc='Class Search Progress', ncols=100))
         
         while False in data_list:
             data_list.remove(False)
@@ -657,7 +658,7 @@ class ModeSelection:
         elif len(str(results.prettify())) == 31:
             return False
         
-        for _, content in enumerate(results):
+        for content in results:
             a = content.next_sibling
             if a is None or not len(a.text.strip()):
                 continue

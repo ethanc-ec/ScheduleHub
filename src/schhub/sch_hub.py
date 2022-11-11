@@ -1,13 +1,16 @@
-import json
 import re
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
-from multiprocessing import Pool
+import json
+import requests
+
+from tqdm import tqdm
 from pathlib import Path
+from bs4 import BeautifulSoup
+
 from time import perf_counter
 
-import requests
-from bs4 import BeautifulSoup
-from tqdm import tqdm
+from functools import lru_cache
+from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 
 """
 Functions for scraping the information from the website
@@ -144,6 +147,7 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list:
     return single_entries
 
 
+@lru_cache
 def hub_collector(filename: str) -> dict:
     with open(Path(__file__).parent / filename) as class_txt:
         class_txt = class_txt.read().splitlines()
@@ -576,6 +580,7 @@ class ModeSelection:
 
         return None
 
+    @lru_cache()
     def mode_grab(self) -> None:
 
         cl_start = perf_counter()
@@ -608,7 +613,7 @@ class ModeSelection:
             for i in range(150):
                 URLs.append(f'https://www.bu.edu/academics/{branch}/courses/{i}')
 
-        executor = ProcessPoolExecutor()
+        executor = ThreadPoolExecutor()
         class_list = list(tqdm(executor.map(self.mgrab_assistant_group, URLs), total=len(URLs), desc='Group Search Progress', ncols=100))
 
         while False in class_list:

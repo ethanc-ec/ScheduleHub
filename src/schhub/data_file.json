@@ -1,4 +1,18 @@
 {
+    "qstba476": {
+        "prereq": "CAS CS108 or CAS CS111 or QST BA222; Junior standing",
+        "coreq": null,
+        "description": "Formerly MK476. This course introduces students to the foundational machine learning techniques that are transforming the way we do business. Machine learning relies on interdisciplinary techniques from statistics, linear algebra, and optimization to detect structure in large volumes of data and solve prediction problems. You will gain a theoretical understanding of why the algorithms work, when they fail, and how they create value. You will also gain hands-on experience training machine learning models in Python and deriving insights and making predictions from real-world data. Prior programming experience is strongly recommended.",
+        "credit": "4",
+        "hub credit": null
+    },
+    "cascs507": {
+        "prereq": "CAS CS 132 and CAS CS 330.",
+        "coreq": null,
+        "description": "Convex optimization algorithms and their applications to efficiently solving fundamental computational problems. Intended audience is advanced undergraduates and master students. Topics include modeling using mathematical programs, gradient descent algorithms, linear programming, Lagrangian duality, basics of complexity theory for optimization.",
+        "credit": "4",
+        "hub credit": null
+    },
     "cdsds100": {
         "prereq": null,
         "coreq": null,
@@ -1923,11 +1937,12 @@
     "casah112": {
         "prereq": null,
         "coreq": null,
-        "description": "Major monuments and artists in Europe and the United States from the Renaissance to Post-Modernism. Sequential development of major styles in architecture, sculpture, painting, and photography. Relationship of visual art to social and cultural forces. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Historical Consciousness.",
+        "description": "Major monuments and artists in Europe and the United States from the Renaissance to Post-Modernism. Sequential development of major styles in architecture, sculpture, painting, and photography. Relationship of visual art to social and cultural forces. Effective Spring 2023, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Historical Consciousness, Teamwork/Collaboration.",
         "credit": "4",
         "hub credit": [
             "Aesthetic Exploration",
-            "Historical Consciousness"
+            "Historical Consciousness",
+            "Teamwork/Collaboration"
         ]
     },
     "casah113": {
@@ -5368,7 +5383,7 @@
     "cascs108": {
         "prereq": null,
         "coreq": null,
-        "description": "Introduction to programming suitable for students not majoring in computer science. Topics include: application decomposition and abstraction; data manipulation and programming with databases; graphical user interfaces; debugging. Assignments include applications in science, commerce, games, the Web, and social networking. Carries MCS divisional credit in CAS. Effective Fall 2018, this course fulfills a single unit in the following BU Hub area: Quantitative Reasoning I.",
+        "description": "A rigorous introduction to programming for students not majoring in computer science. Covers a broad set of topics about application development, including basic programming concepts, testing and debugging, abstraction and design, and an introduction to data analytics. Effective Fall 2018, this course fulfills a single unit in the following BU Hub area: Quantitative Reasoning I.",
         "credit": "4",
         "hub credit": [
             "Quantitative Reasoning I"
@@ -5668,7 +5683,7 @@
     "cascs519": {
         "prereq": "CAS CS 411 or CDS DS 310; or equiv. experience in software development and consent of instructor.",
         "coreq": null,
-        "description": "Consent provided upon successful completion of pass/fail diagnostic test that assesses student readiness to take the course. This course offers students in computing disciplines the opportunity to apply their programming and system development skills by working on real-world projects provided from partnering organizations within and outside of BU, which are curated by Spark! The course offers a range of project options where students can improve their technical skills, while also gaining the soft skills necessary to deliver projects aligned to the partner's goals. These include teamwork and communications skills and software development processes.",
+        "description": "Consent provided upon successful completion of pass/fail diagnostic test that assesses student readiness to take the course. This course offers students in computing disciplines the opportunity to apply their programming and system development skills by working on real-world projects provided from partnering organizations within and outside of BU, which are curated by Spark! The course offers a range of project options where students can improve their technical skills, while also gaining the soft skills necessary to deliver projects aligned to the partner's goals. These include teamwork and communications skills and software development processes. Effective Spring 2022, this course fulfills a single unit in each of the following BU Hub areas: Ethical Reasoning, Oral and/or Signed Communication, Teamwork/Collaboration.",
         "credit": "4",
         "hub credit": [
             "Ethical Reasoning",
@@ -6204,7 +6219,7 @@
     "casci365": {
         "prereq": null,
         "coreq": null,
-        "description": "Exploring Korean cinema focusing on the themes of violence and redemption. What ethical, aesthetic, and historical implications can we draw from various cinematic depictions of violence? What might be ethical ways to visualize others' traumatic experiences? Effective Fall 2019, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Ethical Reasoning, Critical Thinking.",
+        "description": "Introduction to Korean Cinema from the early 20th century to the present. Discussion and essays on ethics of representation, colonialism, wars, state violence against citizens, psychological violence, sexual violence. Effective Fall 2019, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Ethical Reasoning, Critical Thinking.",
         "credit": "4",
         "hub credit": [
             "Aesthetic Exploration",
@@ -7127,9 +7142,9 @@
         "hub credit": null
     },
     "casec581": {
-        "prereq": "CAS EC 501.",
+        "prereq": "CAS EC 501; or consent of instructor.",
         "coreq": null,
-        "description": "Quantitative analyses of demand for insurance and healthcare, moral hazard, adverse selection, healthcare supply, quality and price competition. Physician agency, payment systems, capitation, risk management and managed care. Emphasis is on U.S. institutions, but concepts and methodology are applicable worldwide",
+        "description": "Quantitative analyses of demand for insurance and healthcare, moral hazard, adverse selection, healthcare supply, quality and price competition. Physician agency, payment systems, capitation, risk management and managed care. Emphasis is on U.S. institutions, but concepts and methodology are applicable worldwide.",
         "credit": "4",
         "hub credit": null
     },
@@ -8496,7 +8511,7 @@
     "casen495": {
         "prereq": "two previous literature courses or junior or senior standing.",
         "coreq": null,
-        "description": "Topic for Fall 2021: On Feeling/s: Literature and Affect Theory. The experience of reading can elicit a complex spectrum of feelings. This course explores what new, counter or subaltern knowledges and histories such emotions might reveal. Texts from Octavia Butler, Ocean Vuong, Toni Morrison, and affect theorists are covered.",
+        "description": "Topic varies by semester. Past topics include Literature and Affect Theory, Multiethnic Speculative Fiction, Literature and Conceptions of Time, etc. Please see English Department's website or contact instructor for current topic.",
         "credit": "4",
         "hub credit": null
     },
@@ -10518,9 +10533,13 @@
     "casir379": {
         "prereq": null,
         "coreq": null,
-        "description": "Examines the tension between political leadership and the military force in the U.S. and the world. Students analyze civil-military relations theory and history, and the responsibilities of the military, civilian leadership, and the public.",
+        "description": "Examines the tension between political leadership and the military force in the U.S. and the world. Students analyze civil-military relations theory and history, and the responsibilities of the military, civilian leadership, and the public. Effective Spring 2023, this course fulfills a single unit in each of the following BU Hub areas: Oral and/or Signed Communication, Ethical Reasoning, Teamwork/Collaboration.",
         "credit": "4",
-        "hub credit": null
+        "hub credit": [
+            "Ethical Reasoning",
+            "Oral and/or Signed Communication",
+            "Teamwork/Collaboration"
+        ]
     },
     "casir397": {
         "prereq": null,
@@ -12055,14 +12074,14 @@
         ]
     },
     "casjs348": {
-        "prereq": null,
+        "prereq": "First-Year Writing Seminar; and one course from among the following: Philosophy, Religion, Core Curriculum (CC101 and/or CC102)",
         "coreq": null,
-        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings, Critical Thinking.",
+        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2023, this course fulfills a single unit in each of the following BU Hub areas: Writing-Intensive Course, Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings.",
         "credit": "4",
         "hub credit": [
             "Philosophical Inquiry and Life's Meanings",
             "Global Citizenship and Intercultural Literacy",
-            "Critical Thinking"
+            "Writing-Intensive Course"
         ]
     },
     "casjs331": {
@@ -14049,7 +14068,7 @@
     "caslk383": {
         "prereq": null,
         "coreq": null,
-        "description": "Introduction to Korean Cinema from the early 20th century to the present. Discussion and essays on ethics of representation, colonialism, wars, state violence against citizens, psychological violence, sexual violence. Carries humanities divisional credit in CAS. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Global Citizenship and Intercultural Literacy. Effective Fall 2019, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Ethical Reasoning, Critical Thinking.",
+        "description": "Introduction to Korean Cinema from the early 20th century to the present. Discussion and essays on ethics of representation, colonialism, wars, state violence against citizens, psychological violence, sexual violence. Effective Fall 2018, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Global Citizenship and Intercultural Literacy. Effective Fall 2019, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Ethical Reasoning, Critical Thinking.",
         "credit": "4",
         "hub credit": [
             "Aesthetic Exploration",
@@ -14674,7 +14693,7 @@
     "caslx390": {
         "prereq": null,
         "coreq": null,
-        "description": "Topics and pre-requisites vary by semester and section. May be repeated for credit as topics change. Topic for Fall 2022: Language Revitalization. (pre-req: CAS LX 250, Introduction to Linguistics, or equivalent.) Languages become \"endangered\" or \"dormant\" for multiple reasons, and efforts to revitalize languages take many paths. We examine key cases of language revitalization, including examples from around the world, but with a primary focus on indigenous languages of North America. Topic for Spring 2023: Metrics and Evaluation in Natural Language Processing. Much recent progress has been made in Natural Language Processing, sometimes accompanied by descriptions like \"human-level performance.\" This course serves as an introduction to how \"progress\" is measured and evaluated, and invites broader discussions about claims of human parity.",
+        "description": "Topics and pre-requisites vary by semester and section. May be repeated for credit as topics change. Topic for Spring 2023: Metrics and Evaluation in Natural Language Processing. Pre-reqs: CAS LX 250, Introduction to Linguistics, and CAS LX 496/GRS LX 796, Computational Linguistics, or equivalent, by consent of the instructor. Much recent progress has been made in Natural Language Processing, sometimes accompanied by descriptions like \"human-level performance.\" This course serves as an introduction to how \"progress\" is measured and evaluated, and invites broader discussions about claims of human parity.",
         "credit": "4",
         "hub credit": null
     },
@@ -16705,14 +16724,14 @@
         ]
     },
     "casph495": {
-        "prereq": null,
+        "prereq": "First-Year Writing Seminar; and one course from among the following: Philosophy, Religion, Core Curriculum (CC101 and/or CC102)",
         "coreq": null,
-        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings, Critical Thinking.",
+        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2023, this course fulfills a single unit in each of the following BU Hub areas: Writing- Intensive Course, Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings.",
         "credit": "4",
         "hub credit": [
             "Philosophical Inquiry and Life's Meanings",
             "Global Citizenship and Intercultural Literacy",
-            "Critical Thinking"
+            "Writing-Intensive Course"
         ]
     },
     "casph496": {
@@ -17887,9 +17906,13 @@
     "caspo560": {
         "prereq": "Freshman Writing Seminar.",
         "coreq": null,
-        "description": "Explores the factors that led to the 1994 genocide of the Tutsi in Rwanda, how Rwanda compares to other cases of genocide and extreme violence, and the efforts in post-genocide Rwanda to rebuild, pursue justice, and promote reconciliation.",
+        "description": "Explores the factors that led to the 1994 genocide of the Tutsi in Rwanda, how Rwanda compares to other cases of genocide and extreme violence, and the efforts in post-genocide Rwanda to rebuild, pursue justice, and promote reconciliation. Effective Spring 2023, this course fulfills a single unit in each of the following BU Hub areas: Writing-Intensive Course, Ethical Reasoning, Research and Information Literacy.",
         "credit": "4",
-        "hub credit": null
+        "hub credit": [
+            "Ethical Reasoning",
+            "Research and Information Literacy",
+            "Writing-Intensive Course"
+        ]
     },
     "caspo561": {
         "prereq": null,
@@ -19371,14 +19394,14 @@
         ]
     },
     "casrn338": {
-        "prereq": null,
+        "prereq": "First-Year Writing Seminar; and one course from among the following: Philosophy, Religion, Core Curriculum (CC101 and/or CC102)",
         "coreq": null,
-        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings, Critical Thinking.",
+        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2023, this course fulfills a single unit in each of the following BU Hub areas: Writing- Intensive Course, Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings.",
         "credit": "4",
         "hub credit": [
             "Philosophical Inquiry and Life's Meanings",
             "Global Citizenship and Intercultural Literacy",
-            "Critical Thinking"
+            "Writing-Intensive Course"
         ]
     },
     "casrn345": {
@@ -20457,11 +20480,7 @@
         "coreq": null,
         "description": "May be repeated for credit as topics vary. Topic for Spring 2023, Section B1: Close reading of Franz Kafka's \"The Metamorphosis\" and other parables, and exploration of the global artistic and philosophical reception of Kafka's oeuvre. Effective Fall 2022, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Social Inquiry I, Teamwork/Collaboration.",
         "credit": "4",
-        "hub credit": [
-            "Aesthetic Exploration",
-            "Social Inquiry I",
-            "Teamwork/Collaboration"
-        ]
+        "hub credit": null
     },
     "casxl315": {
         "prereq": "First Year Writing Seminar (e.g., WR 100 or WR 120)",
@@ -22433,7 +22452,7 @@
     "comcm726": {
         "prereq": null,
         "coreq": null,
-        "description": "This course description is currently under construction.",
+        "description": "Explores the impact of current advertising/marketing issues through the lens of strategic branding and brand building best practices from business, economic, political, social, legal, and ethical perspectives. Modified case method looking at real world solutions, with lectures from experts on selected issues.",
         "credit": "4",
         "hub credit": null
     },
@@ -26607,11 +26626,7 @@
         "coreq": null,
         "description": "This course description is currently under construction.",
         "credit": "4",
-        "hub credit": [
-            "Aesthetic Exploration",
-            "Historical Consciousness",
-            "Writing-Intensive Course"
-        ]
+        "hub credit": null
     },
     "cfaar329": {
         "prereq": null,
@@ -33010,7 +33025,7 @@
     },
     "sarhp405": {
         "prereq": "Senior concentrators in Behavior and Health program only.",
-        "coreq": null,
+        "coreq": "SAR HP250",
         "description": "Practical experience in a health or social service related setting related to the student's specialization area. Includes participation in weekly seminar.",
         "credit": "4",
         "hub credit": null
@@ -34413,7 +34428,13 @@
         "credit": null,
         "hub credit": null
     },
-    "sarot621": false,
+    "sarot621": {
+        "prereq": "OT501, OT524, OT556, OT562, OT620; MSOT and OTD students only.",
+        "coreq": null,
+        "description": "This is the third course in a sequence that develops skills and knowledge for evidence-based occupational therapy practice. The course focuses on generating evidence for one's own practice. The course introduces students to methods to examine generating group level (program evaluation) individual outcomes (single subject design).",
+        "credit": "4",
+        "hub credit": null
+    },
     "sarpt682": {
         "prereq": null,
         "coreq": null,
@@ -37327,7 +37348,7 @@
     "grsen695": {
         "prereq": null,
         "coreq": null,
-        "description": "Topic for Fall 2021: On Feeling/s: Literature and Affect Theory. The experience of reading can elicit a complex spectrum of feelings. This course explores what new, counter or subaltern knowledges and histories such emotions might reveal. Texts from Octavia Butler, Ocean Vuong, Toni Morrison, and affect theorists are covered.",
+        "description": "Topic varies by semester. Past topics include Literature and Affect Theory, Multiethnic Speculative Fiction, Literature and Conceptions of Time, etc. Please see English Department's website or contact instructor for current topic.",
         "credit": "4",
         "hub credit": null
     },
@@ -38025,7 +38046,7 @@
     "grslx690": {
         "prereq": null,
         "coreq": null,
-        "description": "Topics and pre-requisites vary by semester and section. May be repeated for credit as topics change. Topic for Fall 2022: Language Revitalization. (pre-req: CAS LX 250, Introduction to Linguistics, or equivalent.) Languages become \"endangered\" or \"dormant\" for multiple reasons, and efforts to revitalize languages take many paths. We examine key cases of language revitalization, including examples from around the world, but with a primary focus on indigenous languages of North America. Topic for Spring 2023: Metrics and Evaluation in Natural Language Processing. Much recent progress has been made in Natural Language Processing, sometimes accompanied by descriptions like \"human-level performance.\" This course serves as an introduction to how \"progress\" is measured and evaluated, and invites broader discussions about claims of human parity.",
+        "description": "Topics and pre-requisites vary by semester and section. May be repeated for credit as topics change. Topic for Spring 2023: Metrics and Evaluation in Natural Language Processing. Pre-reqs: CAS LX 250, Introduction to Linguistics, and CAS LX 496/GRS LX 796, Computational Linguistics, or equivalent, by consent of the instructor. Much recent progress has been made in Natural Language Processing, sometimes accompanied by descriptions like \"human-level performance.\" This course serves as an introduction to how \"progress\" is measured and evaluated, and invites broader discussions about claims of human parity.",
         "credit": "4",
         "hub credit": null
     },
@@ -39882,12 +39903,12 @@
     "grsrn638": {
         "prereq": null,
         "coreq": null,
-        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2021, this course fulfills a single unit in each of the following BU Hub areas: Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings, Critical Thinking.",
+        "description": "A thematic introduction to mysticism and philosophy, with a focus on the dynamics of religious experience. Readings will be drawn from medieval Jewish and Islamic philosophy; Sufi mysticism and philosophy; Kabbalah, Sufi poetry, Hebrew poetry from the Golden Age of Muslim Spain. Effective Fall 2023, this course fulfills a single unit in each of the following BU Hub areas: Writing- Intensive Course, Global Citizenship and Intercultural Literacy, Philosophical Inquiry and Life's Meanings.",
         "credit": "4",
         "hub credit": [
             "Philosophical Inquiry and Life's Meanings",
             "Global Citizenship and Intercultural Literacy",
-            "Critical Thinking"
+            "Writing-Intensive Course"
         ]
     },
     "grsrn645": {

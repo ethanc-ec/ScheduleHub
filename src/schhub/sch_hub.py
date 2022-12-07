@@ -364,6 +364,7 @@ def dump_data(data: dict) -> None:
     return None
 
 
+@lru_cache()
 def update_data() -> None:
     classes = pull_classes()
 
@@ -395,45 +396,62 @@ class ModeSelection:
     def __init__(self):
         self.hub_credits = None
 
+    def show_commands(self):
+        selection_dict = {
+            '-c': 'Course Info',
+            '-s': 'Sections',
+            '-t': 'Total Hub Credits',
+            '-sh': 'Show Hub Credits',
+            '-w': 'Write to txt',
+            '-u': 'Update Data',
+            '-g': 'Grab Data',
+            '-h': 'Help',
+            '-e': 'Exit'
+        }
+
+        print('\nCommands:')
+
+        for id in selection_dict:
+            print(f"{id}: {selection_dict[id]}")
+
     def mode_selection(self):
+        self.show_commands()
         while True:
-            print('\nModes: \n')
-
-            for idx, val in enumerate(['Course Info', 'Sections', 'Total Hub Credits', 'Show Hub Credits', 'Write to txt', 'Update Data', 'Grab Data', 'Exit']):
-                print(f"{idx + 1}. {val}")
-
             mode = input('\nSelect a mode: ').lower()
 
-            if mode in ['1', 'course info']:
-                self.mode_course_info()
+            if '-h' in mode:
+                print('Not implemented yet')
 
-            elif mode in ['2', 'sections']:
+            elif '-c' in mode:
+                self.mode_course_info(mode.split()[1:])
+
+            elif '-s' in mode:
                 self.mode_sections()
 
-            elif mode in ['3', 'total hub credits']:
+            elif '-t' in mode:
                 self.mode_hub_credits()
 
-            elif mode in ['4', 'show hub credits']:
+            elif '-sh' in mode:
                 if not self.hub_credits:
                     print('No hub credits to show')
                     continue
 
                 self.mode_show_hub_credits()
 
-            elif mode in ['5', 'write to txt']:
+            elif -'w' in mode:
                 if not self.hub_credits:
                     print('No hub credits to write to txt')
                     continue
 
                 self.mode_txt()
 
-            elif mode in ['6', 'update data']:
+            elif '-u' in mode:
                 self.mode_update()
 
-            elif mode in ['7', 'grab data']:
+            elif '-g' in mode:
                 self.mode_grab()
 
-            elif mode in ['8', 'exit']:
+            elif '-e' in mode:
                 print('Exiting. . .')
                 break
 
@@ -442,9 +460,7 @@ class ModeSelection:
 
         quit()
 
-    def mode_course_info(self) -> None:
-        course_yr = input('\nEnter course code and year/semester (e.g. cdsds210 2022 fall or cdsds210 future): ').split()
-
+    def mode_course_info(self, course_yr) -> None:
         start = perf_counter()
 
         if len(course_yr) == 1:
@@ -463,19 +479,22 @@ class ModeSelection:
 
         stop = perf_counter()
 
-        print(f"\nDone in: {stop - start:0.4f} seconds")
+        print(f"Done in: {stop - start:0.4f} seconds")
 
         return None
 
     def mode_sections(self) -> None:
-        course_yr = input('\nEnter course code and year/semester (e.g. cdsds210 2022 fall or cdsds210 future): ').split()
-        if len(course_yr) == 1:
-            course_yr.append('future')
-        if 'future' not in course_yr[1]:
-            course_yr = [course_yr[0],  f'{course_yr[1]} {course_yr[2]}']
-        print(f'\nSearching sections for {course_yr[0]} during {course_yr[1]}\n')
+        course_code = input('\nEnter course code and year/semester (e.g. cdsds210 2022 fall or cdsds210 future): ').split()
+        if len(course_code) == 1:
+            course_code.append('future')
+        if 'future' not in course_code[1]:
+            if 'spring' in course_code[2].lower():
+                course_code[2] = 'SPRG'
+            course_code = [course_code[0],  f'{course_code[1]} {course_code[2]}']
 
-        sections = section_finder(course_yr[0], course_yr[1])
+        print(f'\nSearching sections for {course_code[0]} during {course_code[1]}\n')
+
+        sections = section_finder(course_code[0], course_code[1])
 
         if not sections:
             print('No sections found')

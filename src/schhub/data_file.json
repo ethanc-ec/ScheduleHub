@@ -147,7 +147,7 @@
     "cdsds290": {
         "prereq": null,
         "coreq": null,
-        "description": "This workshop focuses on how we learn from data. How do we identify and analyze relationships in our data? What conclusions can we draw from our data, and how applicable are our conclusions to broader contexts? How do we communicate effectively about our data and analyses? How can we be critical consumers of data and research, and identify issues and limitations in how data is used by data scientists, journalists, academics, and others? Effective Spring 2023, this course fulfills a single unit in the following BU Hub area: Research and Information Literacy",
+        "description": "This workshop focuses on how we learn from data. How do we identify and analyze relationships in our data? What conclusions can we draw from our data, and how applicable are our conclusions to broader contexts? How do we communicate effectively about our data and analyses? How can we be critical consumers of data and research, and identify issues and limitations in how data is used by data scientists, journalists, academics, and others? Effective Spring 2023, this course fulfills a single unit in the following BU Hub area: Research and Information Literacy. Students must register for both DS290 and DS292.",
         "credit": "2",
         "hub credit": [
             "Research and Information Literacy"
@@ -175,9 +175,9 @@
         ]
     },
     "cdsds292": {
-        "prereq": null,
+        "prereq": "CDS DS 290.",
         "coreq": null,
-        "description": "This workshop will cover essential programs, tools, and frequently used data sets necessary to work effectively on civic tech projects enabling greater interdisciplinary engagement and contextual understanding of the tools in an applied context. Tools will include working with GIS/ geospatial programming languages, gaining familiarity with commonly used libraries and packages in R and Python, and leveraging data visualization tools like Tableau, Flourish, and PowerBI. Additionally, the course will allow students to learn about and engage with commonly used civic tech data sets: census/ ACS data, elections data, land use and housing, and development data, data about criminal legal systems, and more. Effective Spring 2023, this course fulfills a single unit in the following BU Hub area: The Individual in Community.",
+        "description": "This workshop will cover essential programs, tools, and frequently used data sets necessary to work effectively on civic tech projects enabling greater interdisciplinary engagement and contextual understanding of the tools in an applied context. Tools will include working with GIS/ geospatial programming languages, gaining familiarity with commonly used libraries and packages in R and Python, and leveraging data visualization tools like Tableau, Flourish, and PowerBI. Additionally, the course will allow students to learn about and engage with commonly used civic tech data sets: census/ ACS data, elections data, land use and housing, and development data, data about criminal legal systems, and more. Effective Spring 2023, this course fulfills a single unit in the following BU Hub area: The Individual in Community. Students must register for both DS290 and DS292.",
         "credit": "2",
         "hub credit": [
             "The Individual in Community"
@@ -13496,9 +13496,10 @@
     "caslj441": {
         "prereq": "CAS LJ 303.",
         "coreq": null,
-        "description": "Analysis and discussion of authentic print, digital, visual, and social media while developing a high level of Japanese proficiency, and gaining knowledge of current issues and media literacy. Develops critical reading/viewing skills as well as communicative and intercultural proficiency. Effective Spring 2020, this course fulfills a single unit in each of the following BU Hub areas: Ethical Reasoning, Digital/Multimedia Expression.",
+        "description": "Analysis and discussion of authentic print, digital, visual, and social media while developing a high level of Japanese proficiency, and gaining knowledge of current issues and media literacy. Develops critical reading/viewing skills as well as communicative and intercultural proficiency. Effective Fall 2023, this course fulfills a single unit in each of the following BU Hub areas: Digital/Multimedia Expression, Ethical Reasoning. Social Inquiry I.",
         "credit": "4",
         "hub credit": [
+            "Social Inquiry I",
             "Ethical Reasoning",
             "Digital/Multimedia Expression"
         ]
@@ -20478,7 +20479,7 @@
     "casxl270": {
         "prereq": null,
         "coreq": null,
-        "description": "May be repeated for credit as topics vary. Topic for Spring 2023, Section B1: Close reading of Franz Kafka's \"The Metamorphosis\" and other parables, and exploration of the global artistic and philosophical reception of Kafka's oeuvre. Effective Fall 2022, this course fulfills a single unit in each of the following BU Hub areas: Aesthetic Exploration, Social Inquiry I, Teamwork/Collaboration.",
+        "description": "May be repeated for credit as topics vary. Topic for Spring 2023, Section B1: Close reading of Franz Kafka's \"The Metamorphosis\" and other parables, and exploration of the global artistic and philosophical reception of Kafka's oeuvre.",
         "credit": "4",
         "hub credit": null
     },
@@ -33829,21 +33830,21 @@
     "sarot944": {
         "prereq": null,
         "coreq": null,
-        "description": "No description available",
+        "description": "This course will introduce students to methods of assessing how occupation contributes to health and well-being among populations and will provide opportunities to develop and practice needs assessment skills. Students will learn how to access and analyze large data sets to examine whether a health problem in a community warrants occupational therapy intervention. Students will conduct a needs assessment of a population and develop a proposal for occupational therapy intervention to address the identified needs.",
         "credit": "4",
         "hub credit": null
     },
     "sarot945": {
         "prereq": null,
         "coreq": null,
-        "description": "No description available",
+        "description": "This course is designed to help students think critically about the ways in which theories and models are used to guide clinical practice. In particular, students will examine the distinction between models of function and disablement and theories of how change occurs as a result of intervention, as well as how these models may or may not be related. Students will examine how theories and models describe or explain a phenomenon at different levels of analysis and the types of scientific evidence required to support or refute the propositions reflected in clinical models and theories. Students examine the contrasting views of mechanistic, organismic, and contextual models, and contemporary expressions of these approaches in the clinical theories. The course investigates explanatory models of change through a critical examination of the theoretical bases of intervention approaches in occupational therapy. Students examine in depth a theory relevant to their doctoral project. Students will complete the first Doctoral Project Task: articulate a concise and clear model of a clinical problem that reflects current theory and best evidence.",
         "credit": "4",
         "hub credit": null
     },
     "sarot947": {
         "prereq": null,
         "coreq": null,
-        "description": "This course description is currently under construction.",
+        "description": "This on-line course provides students with concurrent mentoring from their faculty advisor and peer mentor while they are completing the doctoral experiential component. Students meet on-line in small mentoring sections with their faculty advisor throughout the doctoral experiential component. Students will complete the 3rd Doctoral Project task: design and implement an intervention or program that is guided by current theory and best evidence. Students will develop a model for the hypothesized mechanisms of action of a particular intervention or program and incorporate a feasible and effective method for evaluation within the design of the program to be implemented during the doctoral experiential component in the situation of practice.",
         "credit": "4",
         "hub credit": null
     },
@@ -33857,14 +33858,14 @@
     "sarot949": {
         "prereq": null,
         "coreq": null,
-        "description": "No description available",
+        "description": "This doctoral experiential component is an in-depth experience in one or more of the following student-selected areas: clinical practice, research, leadership, program and policy development, advocacy, education or theory development. This experience is designed to support advanced skills the student's selected area. The experience is a minimum of 14 full-time weeks (560 hours). Development of individualized learning objectives, assignments and evaluation of student performance objectives occurs in collaboration with the student, Doctoral Project mentor and mentor in the situation of practice with expertise in one of the above areas.",
         "credit": "0",
         "hub credit": null
     },
     "sarot948": {
         "prereq": null,
         "coreq": null,
-        "description": "No description available",
+        "description": "In this course students complete their culminating Doctoral Project and disseminate the findings from their scholarly work, relating theory to practice and demonstrating synthesis of advanced knowledge. The students present their Doctoral Project and discuss findings in a professional forum related to their selected area: clinical practice, research, leadership, program and policy development, advocacy, education or theory development. Development of individualized learning objectives for the dissemination, plan for dissemination and evaluation of student performance objectives occurs in collaboration with the student, Doctoral Project academic mentor and mentor in the situation of practice with expertise in one of the above areas.",
         "credit": "2",
         "hub credit": null
     },
@@ -37898,7 +37899,7 @@
     "grsls850": {
         "prereq": null,
         "coreq": null,
-        "description": "This course description is currently under construction.",
+        "description": "May be repeated for credit if topic is different. Spring 2023 topics: Section A1: Reading Baroque Poetry. The lyrical poetry of Quevedo, Lope de Vega, and G?ngora, with attention to its modes of transmission; the way it has been edited, annotated and translated; and its modern reception in Spain and the U.S. from the 1920s to the present. Section B1: Poetry and Social Change in Twentieth-Century Latin America. Exploration of Latin America's strong tradition of the use of poetry to effect social change. Examples from a broad range of authors, including Pablo Neruda, Nicolas Guillen, Ernesto Cardenal, Roque Dalton, Mario Benedetti and Gioconda Belli.",
         "credit": "4",
         "hub credit": null
     },

@@ -417,7 +417,7 @@ class ModeSelection:
     def mode_selection(self):
         self.show_commands()
         while True:
-            mode = input('\nSelect a mode: ').lower()
+            mode = input('\n>').lower()
 
             if '-h' in mode:
                 print('Not implemented yet')
@@ -438,7 +438,7 @@ class ModeSelection:
 
                 self.mode_show_hub_credits()
 
-            elif -'w' in mode:
+            elif '-w' in mode:
                 if not self.hub_credits:
                     print('No hub credits to write to txt')
                     continue
@@ -627,16 +627,8 @@ class ModeSelection:
         else:
             bselect = [bselect]
 
-        URLs = []
-        for branch in bselect:
-            for i in range(150):
-                URLs.append(f'https://www.bu.edu/academics/{branch}/courses/{i}')
-
         executor = ThreadPoolExecutor()
-        class_list = list(tqdm(executor.map(self.mgrab_assistant_group, URLs), total=len(URLs), desc='Group Search Progress', ncols=100))
-
-        while False in class_list:
-            class_list.remove(False)
+        class_list = list(tqdm(executor.map(self.mgrab_assistant_group, bselect), total=len(bselect), desc='Group Search Progress', ncols=100))
 
         class_list = [item for sublist in class_list for item in sublist]
 
@@ -663,25 +655,31 @@ class ModeSelection:
 
         return None
 
-    def mgrab_assistant_group(self, URL):
-        group = []
-        page = requests.get(URL)
-        content = BeautifulSoup(page.content, 'html.parser')
+    def mgrab_assistant_group(self, branch):
+        sess = requests.Session()
+        base = 'https://www.bu.edu/academics/{branch}/courses/'
 
-        results = content.find('ul', class_='course-feed')
-        if results is None:
-            return False
-        elif len(str(results.prettify())) == 31:
-            return False
+        whole_branch = []
+        for i in range(150):
+            page = sess.get(base + f'{i}')
+            content = BeautifulSoup(page.content, 'html.parser')
 
-        for content in results:
-            a = content.next_sibling
-            if a is None or not len(a.text.strip()):
-                continue
-            else:
-                class_code = a.text.split(':')[0].strip().replace(' ', '').lower()
-                group.append(class_code)
-        return group
+            results = content.find('ul', class_='course-feed')
+            if results is None or len(str(results.prettify())) == 31:
+                break
+
+            group = []
+            for content in results:
+                a = content.next_sibling
+                if a is None or not len(a.text.strip()):
+                    continue
+                else:
+                    class_code = a.text.split(':')[0].strip().replace(' ', '').lower()
+                    group.append(class_code)
+
+            for i in group:
+                whole_branch.append(i)
+        return whole_branch
 
     def mgrab_assistant_grab(self, course):
         temp = info_finder(course, 'future', True)

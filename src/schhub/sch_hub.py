@@ -18,7 +18,7 @@ Can also grab from 'data_file.json'
 """
 
 
-def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> BeautifulSoup:
+def content_getter(finder: str, input_class: str, yearsem: str = 'future', sess: requests.Session = False) -> BeautifulSoup:
     """ returns the content of the page as a BeautifulSoup object
         inputs: finder, class code, year + semester
     """
@@ -41,19 +41,22 @@ def content_getter(finder: str, input_class: str, yearsem: str = 'future') -> Be
             + f"%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D10%26adv%3D1%26nolog%3D%26search_adv_all%3D{code[0]}%2B{code[1]}%2B{code[2]}" \
             + f"%26yearsem_adv%3D{time}%26credits%3D%2A%26pathway%3D%26hub_match%3Dall"
 
-    page = requests.get(URL)
+    if sess:
+        page = sess.get(URL)
+    else:
+        page = requests.get(URL)
 
     content = BeautifulSoup(page.content, 'html.parser')
 
     return content
 
 
-def info_finder(input_class: str, yearsem: str, skip: str = False) -> dict:
+def info_finder(input_class: str, yearsem: str, skip: str = False, sess: requests.Session = False) -> dict:
     if in_data(input_class) and not skip:
         class_data = pull_data(input_class)
         return class_data
 
-    page_content = content_getter('info', input_class, yearsem)
+    page_content = content_getter('info', input_class, yearsem, sess)
     results = page_content.find(id="body-tag")
 
     # For finding the hub credits
@@ -120,7 +123,10 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list:
     """ returns a nested list with all the sections
         inputs: class code, year + semester
     """
-    page_content = content_getter('section', input_class, yearsem)
+    try:
+        page_content = content_getter('section', input_class, yearsem)
+    except AssertionError:
+        return None
 
     is_valid = page_content.find_all('div', class_="coursearch-course-container")
     if "Course not found" in str(is_valid):
@@ -149,7 +155,7 @@ def section_finder(input_class: str, yearsem: str = 'future') -> list:
 
 @lru_cache
 def hub_collector(filename: str) -> dict:
-    with open(Path(__file__).parent / filename) as class_txt:
+    with open((Path(__file__).parent.parent / f'data/{filename}')) as class_txt:
         class_txt = class_txt.read().splitlines()
 
     hub_dict = {
@@ -184,8 +190,8 @@ def hub_collector(filename: str) -> dict:
 
     print('\nCollecting hub credits...')
 
-    executor = ThreadPoolExecutor()
-    info = list(tqdm(executor.map(hc_assistant, class_txt), total=len(class_txt), desc='Hub Info Progress', ncols=100))
+    with ThreadPoolExecutor() as executor:
+        info = list(tqdm(executor.map(hc_assistant, class_txt), total=len(class_txt), desc='Hub Info Progress', ncols=100))
 
     for val in info:
         if not val:
@@ -309,7 +315,7 @@ JSON management functions
 
 def in_data(class_: str) -> bool:
     try:
-        with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+        with open((Path(__file__).parent.parent / 'data/data_file.json'), 'r') as data_file:
             data = json.load(data_file)
             return class_ in data
 
@@ -322,13 +328,13 @@ def merge_data(new_data: dict) -> None:
         inputs: a dictionary with class name as key and a dictionary of class info as value
     """
     try:
-        with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+        with open((Path(__file__).parent.parent / 'data/data_file.json'), 'r') as data_file:
             old_data = json.load(data_file)
 
     except FileNotFoundError:
         old_data = False
 
-    with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
+    with open((Path(__file__).parent.parent / 'data/data_file.json'), 'w') as data_file:
         if old_data:
             new_data.update(old_data)
         data_file.seek(0)
@@ -338,7 +344,7 @@ def merge_data(new_data: dict) -> None:
 
 
 def pull_data(class_: str) -> dict:
-    with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+    with open((Path(__file__).parent.parent / 'data/data_file.json'), 'r') as data_file:
         data = json.load(data_file)
 
     return data[class_]
@@ -348,7 +354,7 @@ def pull_classes() -> list:
     """ returns all classes in list[str]
         inputs: None
     """
-    with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+    with open((Path(__file__).parent.parent / 'data/data_file.json'), 'r') as data_file:
         data = json.load(data_file)
 
     return list(data.keys())
@@ -358,7 +364,7 @@ def dump_data(data: dict) -> None:
     """ returns None
         inputs: a dictionary with class name as key and a dictionary of class info as value
     """
-    with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
+    with open((Path(__file__).parent.parent / 'data/data_file.json'), 'w') as data_file:
         json.dump(data, data_file, indent=4)
 
     return None
@@ -368,7 +374,7 @@ def dump_data(data: dict) -> None:
 def update_data() -> None:
     classes = pull_classes()
 
-    with open((Path(__file__).parent / 'data_file.json'), 'r') as data_file:
+    with open((Path(__file__).parent.parent / 'data/data_file.json'), 'r') as data_file:
         json_file = json.load(data_file)
 
     executor = ProcessPoolExecutor()
@@ -377,7 +383,7 @@ def update_data() -> None:
     for _, val in enumerate(info_list):
         json_file[val[0]] = val[1]
 
-    with open((Path(__file__).parent / 'data_file.json'), 'w') as data_file:
+    with open((Path(__file__).parent.parent / 'data/data_file.json'), 'w') as data_file:
         json.dump(json_file, data_file, indent=4)
 
     return None
@@ -395,6 +401,7 @@ Terminal 'mode' based UI
 class ModeSelection:
     def __init__(self):
         self.hub_credits = None
+        self.sess = None
 
     def show_commands(self):
         selection_dict = {
@@ -417,7 +424,7 @@ class ModeSelection:
     def mode_selection(self):
         self.show_commands()
         while True:
-            mode = input('\n>').lower()
+            mode = input('\n>')
 
             if '-h' in mode:
                 print('Not implemented yet')
@@ -425,7 +432,7 @@ class ModeSelection:
             elif '-c' in mode:
                 self.mode_course_info(mode.split()[1:])
 
-            elif '-s' in mode:
+            elif '-s' in mode and '-sh' not in mode:
                 self.mode_sections()
 
             elif '-t' in mode:
@@ -485,6 +492,9 @@ class ModeSelection:
 
     def mode_sections(self) -> None:
         course_code = input('\nEnter course code and year/semester (e.g. cdsds210 2022 fall or cdsds210 future): ').split()
+
+        start = perf_counter()
+
         if len(course_code) == 1:
             course_code.append('future')
         if 'future' not in course_code[1]:
@@ -496,11 +506,15 @@ class ModeSelection:
 
         sections = section_finder(course_code[0], course_code[1])
 
-        if not sections:
+        if sections is False:
             print('No sections found')
+            return None
+        elif sections is None:
+            print('Invalid input')
             return None
 
         print_section(sections)
+        print(f'Done in {perf_counter() - start:0.4f} seconds')
 
         return None
 
@@ -627,8 +641,8 @@ class ModeSelection:
         else:
             bselect = [bselect]
 
-        executor = ThreadPoolExecutor()
-        class_list = list(tqdm(executor.map(self.mgrab_assistant_group, bselect), total=len(bselect), desc='Group Search Progress', ncols=100))
+        with ThreadPoolExecutor() as executor:
+            class_list = list(tqdm(executor.map(self.mgrab_assistant_group, bselect), total=len(bselect), desc='Group Search Progress', ncols=100))
 
         class_list = [item for sublist in class_list for item in sublist]
 
@@ -639,8 +653,9 @@ class ModeSelection:
 
         new_data = {}
 
-        p = Pool()
-        data_list = list(tqdm(p.imap_unordered(self.mgrab_assistant_grab, class_list), total=len(class_list), desc='Class Search Progress', ncols=100))
+        self.sess = requests.Session()
+        with Pool() as p:
+            data_list = list(tqdm(p.imap_unordered(self.mgrab_assistant_grab, class_list), total=len(class_list), desc='Class Search Progress', ncols=100))
 
         while False in data_list:
             data_list.remove(False)
@@ -655,6 +670,7 @@ class ModeSelection:
 
         return None
 
+    @lru_cache()
     def mgrab_assistant_group(self, branch):
         sess = requests.Session()
         base = 'https://www.bu.edu/academics/{branch}/courses/'
@@ -682,7 +698,7 @@ class ModeSelection:
         return whole_branch
 
     def mgrab_assistant_grab(self, course):
-        temp = info_finder(course, 'future', True)
+        temp = info_finder(course, 'future', True, self.sess)
         if not temp:
             return False
         return [course, temp]

@@ -1,0 +1,30 @@
+# This is a sample course selection for a DS major
+
+# Year 1 Fall
+cdsds100
+caswr120
+
+# Year 1 Spring
+cdsds110
+cdsds120
+
+# Year 2 Fall
+cdsds210
+cdsds121
+casma214
+
+# Year 2 Spring
+cdsds310
+cdsds122
+
+# Year 3 Fall
+cdsds320
+
+# Year 3 Spring
+cdsds340
+
+# Year 4 Fall
+cdsds380
+
+# Year 4 Spring
+cdsds490
